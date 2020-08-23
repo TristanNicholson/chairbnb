@@ -1,0 +1,390 @@
+.Toolbar {
+    background-color: #B02E0C;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+header{
+    background: rgb(38,163,135);
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9996;
+    box-shadow: 2px 2px 16px rgba(0,0,0,0.2);
+}
+header.Light{
+    background: #fff;
+}
+header.NoShadow{
+    box-shadow: none;
+}
+header.Transparent{
+    position: absolute;
+    background: none;
+}
+header .Logo{
+    top: 5px;
+    left: 5px;
+    position: absolute;
+}
+.h-video.landing .trending .logo{
+    margin-bottom: 20px;
+}
+.Logo a{
+    position: relative;
+    display: inline-block;
+}
+.logo-color-bg:before{
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    z-index: -5;
+    background-color: rgb(38,163,135);
+    display: block;
+    width: 60%;
+    height: 66%;
+    border-radius: 15px;
+}
+.logo-color-bg:after{
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    z-index: -5;
+    background-color: rgb(38,163,135);
+    display: block;
+    width: 60%;
+    height: 66%;
+    border-radius: 15px;
+}
+.Logo img{
+    max-width: 9999px;
+}
+header .Logo img{
+    max-height: 48px;
+}
+header .hero-search{
+    display: none;
+}
+header .navbar{
+    position: relative;
+    float: right;
+    right: 0;
+    top: 0;
+    margin-right: 10px;
+	-webkit-transform: translate(0,0);
+	-moz-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+	-o-transform: translate(0,0);
+	transform: translate(0,0);
+}
+header .navbar-inverse .navbar-nav>li:hover>a{
+    color: rgba(255,255,255,0.7);
+    background: rgb(38,163,135);
+}
+header.light .navbar-inverse .navbar-nav>li:hover>a{
+    color: rgba(255,255,255,1);
+}
+header.transparent .navbar-inverse .navbar-nav>li:hover>a{
+    color: rgb(38,163,135);
+    background: #fff;
+}
+header .navbar-nav>li>.dropdown-menu {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 0;
+    margin-top: 0;
+    top: 59px;
+    border: 0;
+}
+header .user-buttons{
+    position: relative;
+    float: right;
+    top: 0;
+    right: 0;
+    height: 60px;
+    border-radius: 0;
+    margin-left: 3px;
+}
+.header-search-button{
+    text-align: center;
+    font-size: 24px;
+    line-height: 52px;
+    color: #fff;
+    z-index: 10000;
+    position: relative;
+    float: right;
+    top: 4px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.header-search-button:before,
+.hero-search-icon:before{
+    font-family: 'icon';
+    content: "\ec22";
+    display: inline-block;
+    font-size: 24px;
+    margin-top: 0;
+    margin-left: 3px;
+}
+
+
+.UserButtons{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 5000;
+}
+header .UserButtons{
+    padding: 0;
+    background: rgb(38,163,135);
+}
+header.Light .UserButtons{
+    background: #fff;
+}
+header.Transparent .UserButtons{
+    background: transparent;
+}
+.AddListing{
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    line-height: 12px;
+    font-family: 'Capriola', sans-serif;
+    font-size: 16px;
+    margin-left: 0;
+    box-shadow: 2px 2px 16px rgba(0,0,0,0.3);
+    white-space: nowrap;
+    height: 100%;
+    padding: 26px 23px 0 54px;
+    color: #fff;
+    background: rgba(0,0,0,0.10);
+    border-radius: 0;
+    border-left: 1px dashed rgba(255,255,255,0.5);
+}
+.Light .AddListing{
+    background: rgb(38,163,135);
+    border-left: 0;
+}
+header.Transparent .UserButtons:hover .AddListing{
+    border-left: 1px dashed transparent;
+}
+.AddListing:before{
+    font-family: 'icon';
+    content: "\ea7c";
+    position: absolute;
+    font-size: 25px;
+    left: 12px;
+}
+header.Transparent .AddListing{
+    background: none;
+}
+header .AddListing:before{
+    left: 18px;
+}
+header .AddListing:hover{
+    color: #fff;
+    opacity: 0.8;
+}
+header.Light .AddListing:hover{
+    opacity: 1;
+}
+header.Transparent .AddListing:hover{
+    opacity: 1;
+    background: rgb(38,163,135);
+    border-radius: 20px 0;
+}
+.UserLogin{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    top: -15px;
+    padding-right: 12px;
+}
+.UserLogin:before{
+    font-family: 'icon';
+    content: "\ea1e";
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    position: relative;
+    width: 100%;
+}
+.Light .UserLogin:before{
+    color: rgb(38,163,135);
+}
+.UserLogin:hover:before{
+    color: rgba(255,255,255,0.7);
+}
+header.Transparent .UserLogin:hover:before{
+    color: #fff;
+}
+.Light .UserLogin:hover{
+    background: rgb(38,163,135);
+}
+.Light .UserLogin:hover:before{
+    color: #fff;
+}
+header .UserLogin{
+    position: relative;
+    float: left;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    padding-right: 15px;
+    padding-left: 21px;
+}
+header .UserLogin:before{
+    position: relative;
+    top: 16px;
+    left: -2px;
+}
+header.Transparent .UserLogin:hover{
+    background: rgb(38,163,135);
+    border-radius: 20px 0;
+}
+
+/*------------------------------------------------------------------------------
+[ Navbar ]
+------------------------------------------------------------------------------*/
+.Navbar{
+    position: absolute;
+    top: 0;
+    right: 50%;
+    width: auto;
+    z-index: 999998;
+    font-size: 15px;
+    font-family: 'Capriola', sans-serif;
+	-webkit-transform: translate(50%,0);
+	-moz-transform: translate(50%,0);
+    -ms-transform: translate(50%,0);
+	-o-transform: translate(50%,0);
+	transform: translate(50%,0);
+}
+.NavbarInverse {
+    background-color: transparent;
+    border-color: transparent;
+}
+.Navbar .container {
+    width: 100%;
+    padding: 0;
+}
+.Nav>li>a{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.NoMarginTop {
+    margin-top: 0 !important
+}
+#page-content {
+    position: relative;
+    padding-top: 70px;
+    left: 0;
+}
+#page-content.SlideActive {
+    padding-top: 0
+}
+#slide-nav .NavBarToggle {
+    cursor: pointer;
+    position: relative;
+    line-height: 0;
+    float: left;
+    margin: 0;
+    width: 30px;
+    height: 40px;
+    padding: 10px 0 0 0;
+    border: 0;
+    background: transparent;
+}
+#slide-nav .NavBarToggle > .IconBar {
+    width: 100%;
+    display: block;
+    height: 2px;
+    margin: 6px 0 0 0;
+}
+.Light #slide-nav .NavBarToggle > .IconBar,
+#slide-nav .NavBarToggle.SlideActive .IconBar {
+    background: rgb(38,163,135);
+}
+.NavBarHeader {
+    position: relative
+}
+.NavBar.NavBarFixedTop.SlideActive {
+    position: relative
+}
+.NavBarInverse .NavBarNav>li>a {
+    font-family: "Roboto";
+    font-size: 16px;
+    text-shadow: 0 0 6px rgba(0,0,0,0.3);
+    color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    top: -1px;
+}
+.Light .NavBarInverse .NavBarNav>li>a {
+    color:  rgb(38,163,135);
+    text-shadow: none;
+}
+.NavBarInverse .NavBarNav>li:hover>a {
+    color: rgba(255,255,255,0.7);
+    text-shadow: none;
+}
+.Caret{
+    margin-left: 5px;
+}
+.NavBarInverse .NavBarNav>.Active>a,
+.NavBarInverse .NavBarNav>.Active>a:focus,
+.NavBarInverse .NavBarNav>.Active>a:hover {
+    color: rgb(38,163,135);
+    background-color: transparent;
+}
+.NavBarNav>li>.DropdownMenu {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+header .NavBarInverse .NavBarNav>li:hover>.DropdownMenu {
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 20px;
+}
+header.light .NavBarInverse .NavBarNav>li:hover>.DropdownMenu {
+    border-radius: 0 0 8px 8px !important;
+}
+.NavBarInverse .NavBarNav>.Open>a,
+.NavBarInverse .NavBarNav>.Open>a:focus,
+.NavBarInverse .NavBarNav>.Open>a:hover {
+    background-color: rgba(0,0,0,0.1);
+    color: rgba(255,255,255,0.8);
+}
+.DropdownMenu>li>a:focus,
+.DropdownMenu>li>a {
+    color: #666;
+}
+.DropdownMenu>li>a:focus,
+.DropdownMenu>li>a:hover {
+    color: rgb(38,163,135);
+}
+.full-dimming-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(38,163,135);
+    z-index: 9997;
+    display: none;
+    opacity: 0;
+}

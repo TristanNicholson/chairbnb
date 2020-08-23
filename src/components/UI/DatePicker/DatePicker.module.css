@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Work+Sans:wght@200&display=swap');
+
+.DatePicker {
+    height: 400px;
+    width: 400px;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 200;
+}
+
+.Month {
+    margin-top: 10px;
+    font-size: 22px;
+    font-family: 'Montserrat';
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.MonthLabel {
+    width: 70%;
+}
+
+.MonthTransition {
+    transition: all 1s linear;
+}
+
+.AvailableDay {
+    color: black;
+}
+
+.AvailableDay>div:hover {
+    border: 2px solid black;
+    border-radius: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    color: grey;
+}
+
+td > div {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CalendarDaysWeek > td > div {
+    font-weight: 500;
+    font-family: 'Montserrat';
+}
+
+.ChevronLeft, .ChevronRight{
+    height: 20px;
+    width: 20px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.ChevronLeft > svg, .ChevronRight > svg {
+    width: 100%;
+    height: 100%;
+}
+
+.DateSelected {
+    background-color: black;
+    border-radius: 100%;
+    color: white;
+}
+
+.DateUnselected {
+    background-color: white;
+    color: black;
+}

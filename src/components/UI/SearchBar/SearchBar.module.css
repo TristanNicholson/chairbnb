@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Work+Sans:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+.SearchBar {
+    width: 900px;
+    height: 65px;
+    border-radius: 32px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 100px auto;
+    margin-bottom: 15px;
+    border: 1px solid rgb(221, 221, 221);
+}
+
+.SearchBarItem {
+    border-radius: 32px;
+    background-color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.SearchBarItem > label {
+    margin-left: 25px;
+}
+
+.SearchBarItem > label > div {
+    display: flex;
+    justify-content: left;
+}
+.SearchBarItem > label > input {
+    display: flex;
+    justify-content: left;
+}
+
+.SearchBarItem:hover, .SearchBarGuests:hover {
+    background-color: #EEEEEE;
+}
+
+.SearchBarDates {
+    width: 18%;
+}
+.SearchBarInput {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 90%;
+}
+
+.SearchBarInput::placeholder {
+    font-family: 'Work Sans';
+    color: black;
+    opacity: 1;
+}
+
+.SearchBarItemSeparator {
+    height: 32px;
+    width: 1px;
+    border-right: 1px solid rgb(221, 221, 221);
+}
+.SearchIcon {
+    border-radius: 100%;
+    width: 49px;
+    height: 49px;
+    background-color:#B02E0C;
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    color: white;
+}
+
+.SearchIcon > div{
+    width: 30px;
+    height: 30px;
+}
+
+.SearchIcon > div > svg {
+    width: 100%;
+    height: 100%;
+}
+
+.SearchButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #B02E0C;
+    border-radius: 32px;
+    margin: 8px;
+    height: 49px;
+    width: 130px;
+}
+
+.Search {
+    font-size: 18px;
+    color: white;
+    transform: translateX(-12px);
+}
+
+.SearchBarGuests {
+    border-radius: 32px;
+    background-color: white;
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.SearchBarGuests > label {
+    margin-left: 25px;
+    position: relative;
+}
+
+.SearchBarGuests > label > div {
+    display: flex;
+    justify-content: left;
+}
+.SearchBarGuests > label > input {
+    display: flex;
+    justify-content: left;
+}
+
+.SearchBarGuests:hover {
+    background-color: #EEEEEE;
+}
+
+.SearchBarGuests > label {
+    width: 77%;
+    display: block;
+}
+
+.InputPlaceholder {
+    font-family: 'Work Sans';
+    font-size: 15px;
+}
+
+.SearchBarLabel {
+    color: black;
+    margin-bottom: 4px;
+}
+
+.LocationLabel {
+    display: flex;
+    justify-content: left;
+}
+
+.SearchBarLocation {
+    position: relative;
+}
+
+.SearchBarDates{
+    position: relative;
+}
+
+.DeleteInput {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+.DeleteInput > div{
+    background-color: #DDD;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.DeleteInput > div > svg {
+    cursor: pointer;
+}
+
+.DeleteInput > div:hover {
+    background-color: #CCC;
+}
+
+.DatePicker {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.GuestsPicker {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+@media (max-width: 950px){
+    .SearchBar{
+        width: 800px;
+    }
+}
+
+@media (max-width: 820px){
+    .SearchBar{
+        width: 90%;
+    }
+}
