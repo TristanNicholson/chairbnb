@@ -39,8 +39,8 @@ class DatePicker extends Component {
             for(let j = 0; j < 7; j++){
                 if((firstWeek && j < firstDay) || dayBuilder > lastDay){
                     newWeeks[i].push(<td 
-                                    key={dayBuilder+j}
-                                    id={dayBuilder+j}><div></div></td>);
+                                    id={dayBuilder+j}
+                                    key={dayBuilder+j}><div></div></td>);
                 }else if((dayBuilder >= dateDay && this.state.month >= dateMonth && this.state.year >= dateYear)
                 || (this.state.month > dateMonth && this.state.year >= dateYear)
                 || (this.state.year > dateYear)){
@@ -52,21 +52,21 @@ class DatePicker extends Component {
                         selectedStyle = classes.DateUnselected;
                     }
                     newWeeks[i].push(<td 
+                                    className={classes.AvailableDay}
+                                    id={(new Date(this.state.year, this.state.month, dayBuilder)).toISOString().slice(0,10)}
                                     onClick={(event)=>this.props.dateClicked(event)}
                                     onMouseOver={this.dayMouseOverHandler}
                                     onMouseOut={this.dayMouseOutHandler}
-                                    id={(new Date(this.state.year, this.state.month, dayBuilder)).toISOString().slice(0,10)}
-                                    key={new Date(this.state.year, this.state.month, dayBuilder)}
-                                    className={classes.AvailableDay}>
+                                    key={new Date(this.state.year, this.state.month, dayBuilder)}>
                                         <div 
                                             className={selectedStyle}
                                             id={(new Date(this.state.year, this.state.month, dayBuilder)).toISOString().slice(0,10)}>{dayBuilder}</div>
                                     </td>);
                     dayBuilder++;
                 }else{
-                    newWeeks[i].push(<td 
+                    newWeeks[i].push(<td
                                     key={new Date(this.state.year, this.state.month, dayBuilder)}>
-                                        <div>{Number(dayBuilder)}</div>
+                                        <div>{dayBuilder}</div>
                                     </td>);
                     dayBuilder++;
                 }  
@@ -100,13 +100,15 @@ class DatePicker extends Component {
     };
 
     render(){
+        const calendar = this.state.weeks.map(week=><tr>{week}</tr>);
+
         return (
             <>
                 <div className={classes.DatePicker} id="SearchBar">
                     <div>
                         <div className={classes.Month}>
                             <div onClick={this.moveMonthLeftHandler} className={classes.ChevronLeft}><ChevronLeft/></div>
-                            <div className={`${classes.MonthTransition} ${classes.MonthLabel}`}>{MONTHS[this.state.month]}</div>
+                            <div className={classes.MonthLabel}>{MONTHS[this.state.month]}</div>
                             <div onClick={this.moveMonthRightHandler} className={classes.ChevronRight}><ChevronRight/></div>
                         </div>
                         <div>
@@ -121,24 +123,7 @@ class DatePicker extends Component {
                                     <td><div>Fr</div></td>
                                     <td><div>Sa</div></td>
                                 </tr>
-                                <tr>
-                                    {this.state.weeks[0]}
-                                </tr>
-                                <tr>
-                                    {this.state.weeks[1]}
-                                </tr>
-                                <tr>
-                                    {this.state.weeks[2]}
-                                </tr>
-                                <tr>
-                                    {this.state.weeks[3]}
-                                </tr>
-                                <tr>
-                                    {this.state.weeks[4]}
-                                </tr>
-                                <tr>
-                                    {this.state.weeks[5]}
-                                </tr>
+                                {calendar}
                                 </tbody>
                             </table>
                         </div>

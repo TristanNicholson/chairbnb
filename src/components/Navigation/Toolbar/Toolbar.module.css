@@ -388,3 +388,9 @@ header.light .NavBarInverse .NavBarNav>li:hover>.DropdownMenu {
     display: none;
     opacity: 0;
 }
+
+@media (max-width: 690px){
+    .Toolbar {
+        height: 50px;
+    }
+}

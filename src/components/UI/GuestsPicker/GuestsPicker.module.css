@@ -1,11 +1,12 @@
 .GuestsPicker {
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 300px;
     padding: 0 30px;
     background-color: white;
     border-radius: 20px;
-    position: relative;
-    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .GuestsCategory {
@@ -39,6 +40,10 @@
     font-size: 20px;
 }
 
+.GuestsChangeNumber > div {
+    width: 30px;
+}
+
 .Button {
     border: 1px solid black;
     border-radius: 100%;
@@ -60,4 +65,34 @@
 .Button > div > svg {
     width: 100%;
     height: 100%;
+}
+
+@media (max-width : 450px){
+    .GuestsPicker {
+        width: 250px;
+        height: 400px;
+    }
+
+    .GuestsChangeNumber {
+        width: 50%;
+    }
+}
+
+@media (max-width: 300px){
+    .GuestsCategoryLabel {
+        font-size: 15px;
+    }
+
+    .GuestsInfo {
+        font-size: 11px;
+    }
+
+    .GuestsPicker {
+        width: 200px;
+        height: 200px;
+    }
+
+    .GuestsChangeNumber {
+        width: 50%;
+    }
 }
