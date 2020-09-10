@@ -8,7 +8,10 @@ const initialState = {
         adults: 0,
         children: 0,
         infants: 0
-    }
+    },
+    listings: [],
+    refinedLocation: '',
+    totalListings: 0
 };
 
 const reducer = (state = initialState, action) => {
@@ -75,6 +78,11 @@ const reducer = (state = initialState, action) => {
                     [action.guestType]: state.guests[action.guestType] - 1
                 }        
             };
+        case(actionTypes.SET_GUESTS):
+            return {
+                ...state,
+                guests: action.guests
+            };
         case(actionTypes.CLEAR_GUESTS):
             return {
                 ...state,
@@ -83,7 +91,15 @@ const reducer = (state = initialState, action) => {
                     children: 0,
                     infants: 0
                 }
-            }
+            };
+        case(actionTypes.SUBMIT_SEARCH):
+            
+            return {
+                ...state,
+                listings: action.listings.data,
+                refinedLocation: action.listings.name,
+                totalListings: action.listings.totalListings
+            };
         default:
             return state;
     }

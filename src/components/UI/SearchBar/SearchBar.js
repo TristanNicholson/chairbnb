@@ -6,6 +6,7 @@ import DatePicker from '../DatePicker/DatePicker';
 import GuestsPicker from '../GuestsPicker/GuestsPicker';
 import {connect} from 'react-redux';
 import * as actions from '../../../store/actions/searchBar';
+import {Link} from 'react-router-dom';
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -270,20 +271,31 @@ class SearchBar extends Component {
                         </div>
                         {deleteIcons['guests']}
                     </label>
-                    <div className={classes.SearchButton}>
-                        <div className={classes.SearchIcon}>
-                            <div>
+                    <Link to={{
+                        pathname: '/listings',
+                        search: `?location=${this.props.location}`+
+                            `&checkInDate=${this.props.checkInDate}`+
+                            `&checkOutDate=${this.props.checkOutDate}`+
+                            `&adults=${this.props.guests.adults}`+
+                            `&children=${this.props.guests.children}`+
+                            `&infants=${this.props.guests.infants}`
+                    }}
+                    style={{ textDecoration: 'none' }}>
+                        <div className={classes.SearchButton}>
+                            <div className={classes.SearchIcon}>
                                 <div>
-                                    <SearchIcon/>
+                                    <div>
+                                        <SearchIcon/>
+                                    </div>
                                 </div>
+                            </div>  
+                            <div 
+                                className={searchButtonLabelClasses} 
+                                onClick={()=>this.props.onSubmitSearch(this.props.searchState)}>
+                                {searchButtonLabel}
                             </div>
-                        </div>  
-                        <div 
-                            className={searchButtonLabelClasses} 
-                            onClick={()=>this.deleteDateHandler('out')}>
-                            {searchButtonLabel}
                         </div>
-                    </div>
+                    </Link>
                 </div>
             </div>
             {datePicker}
@@ -295,10 +307,11 @@ class SearchBar extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        location: state.location,
-        checkInDate: state.checkInDate,
-        checkOutDate: state.checkOutDate,
-        guests: state.guests
+        location: state.searchBar.location,
+        checkInDate: state.searchBar.checkInDate,
+        checkOutDate: state.searchBar.checkOutDate,
+        guests: state.searchBar.guests,
+        searchState: state.searchBar
     }
 }
 
@@ -309,7 +322,8 @@ const mapDispatchToProps = (dispatch) => {
         onCheckOutDateChange: (id)=>dispatch(actions.setCheckOutDate(id)),
         onGuestAdded: (guestType)=>dispatch(actions.addGuest(guestType)),
         onGuestRemoved: (guestType)=>dispatch(actions.removeGuest(guestType)),
-        onGuestsCleared: ()=>dispatch(actions.clearGuests())
+        onGuestsCleared: ()=>dispatch(actions.clearGuests()),
+        onSubmitSearch: (searchState)=>dispatch(actions.submitSearch(searchState))
     }
 }
 

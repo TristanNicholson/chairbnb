@@ -1,0 +1,55 @@
+.Paginator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+}
+
+.Paginators, .Ellipsis {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans';
+}
+
+.Paginators:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.Buttons {
+    width: 350px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.Arrow {
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    transition: 0.2s linear;
+    box-shadow: #bbb 0px 0px 5px 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Arrow:hover {
+    transition: 0.2s linear;
+    box-shadow: #bbb 0px 0px 10px 4px;
+}
+
+.Arrow > div {
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+}
+.Arrow > div > svg{
+    height: 16px;
+    width: 16px;
+}

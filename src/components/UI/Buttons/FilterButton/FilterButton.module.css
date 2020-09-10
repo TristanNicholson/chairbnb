@@ -1,0 +1,16 @@
+.FilterButton {
+    width: fit-content;
+    padding: 5px 15px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 20px;
+    color: black;
+    background-color: white;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Open Sans';
+}
+
+.FilterButton:hover {
+    border: 1px solid black;
+}

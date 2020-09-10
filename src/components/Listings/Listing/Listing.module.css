@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+.Listing {
+    width: 100%;
+    height: 190px;
+    background-color: white;
+    display: flex;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+    font-family: 'Open Sans', 'sans-serif';
+    color: rgb(113, 113, 113);
+    padding-top: 10px;
+}
+
+.ListingImages {
+    width: 33%;
+    background-color: black;
+    border-radius: 12px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.ListingSummary {
+    width: 67%;
+    height: 100%;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.ListingPriceReview {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.ListingTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    height: 50%;
+}
+.ListingTitle > p, .ListingTitle > h3 {
+    margin: 2px;
+}
+.ListingTitle > h3 {
+    color: black;
+    font-size: 18px;
+}
+
+.ListingHover {
+    background-color: black; 
+    color: white;
+}
+
+img {
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+.Separator {
+    height: 2px;
+    width: 55px;
+    margin: 3px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.Price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 50%;
+}
+
+.TotalPrice {
+    text-decoration: underline;
+}
+
+.PricePerNight > span {
+    font-weight: 900;
+    font-size: 30px;
+    color: black;
+}
+
+.Reviews {
+    display: flex;
+    width: 150px;
+    align-items: center;
+}
+
+.ReviewsIcon {
+    height: 15px;
+    display: flex;
+    width: 15px;
+    margin-right: 5px;
+    color: #B02E0C;
+}
+
+
+.ReviewsIcon > svg {
+    width: 100%;
+    height: 100%;
+}

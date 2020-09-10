@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import * as actions from '../../../../store/actions/searchBar';
 import MobileSearchModal from '../../MobileSearchModal/MobileSearchModal';
 import GuestsPicker from '../../GuestsPicker/GuestsPicker';
+import axios from 'axios';
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -37,6 +38,28 @@ class MobileSearchBar extends Component {
     inputKeyDownHandler = (event) => {
         if(event.key === 'Enter'){
             this.setState({modalActive: true, checkInActive: true});
+            console.log('here');
+            let search = this.props.location;
+            if (navigator.geolocation && this.props.location === '') {
+                navigator.geolocation.getCurrentPosition((geo)=>{
+                    console.log(geo.coords.longitude + '%2C' + geo.coords.latitude);
+                    axios.get("https://api.mapbox.com/geocoding/v5/mapbox.places/"+geo.coords.longitude + '%2C' + geo.coords.latitude+".json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1Nmp4YjB3aG4zZ253YnJoY21kbzkifQ.JM5ZeqwEEm-Tonrk5wOOMw&cachebuster=1598421268010&autocomplete=true&worldview=us&types=region%2Clocality%2Cdistrict%2Cplace%2Ccountry")
+                    .then((res)=>{
+                        console.log(res);
+                    })
+                    .catch((err)=>{
+                        console.log(err);
+                    });
+                });
+                console.log(search);
+            }
+            axios.get("https://api.mapbox.com/geocoding/v5/mapbox.places/"+search+".json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1Nmp4YjB3aG4zZ253YnJoY21kbzkifQ.JM5ZeqwEEm-Tonrk5wOOMw&cachebuster=1598421268010&autocomplete=true&worldview=us&types=region%2Clocality%2Cdistrict%2Cplace%2Ccountry")
+                .then((res)=>{
+                    console.log(res);
+                })
+                .catch((err)=>{
+                    console.log(err);
+                });
         }
     }
 
@@ -169,10 +192,10 @@ class MobileSearchBar extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        location: state.location,
-        checkInDate: state.checkInDate,
-        checkOutDate: state.checkOutDate,
-        guests: state.guests
+        location: state.searchBar.location,
+        checkInDate: state.searchBar.checkInDate,
+        checkOutDate: state.searchBar.checkOutDate,
+        guests: state.searchBar.guests
     }
 }
 

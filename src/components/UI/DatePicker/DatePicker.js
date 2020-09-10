@@ -100,7 +100,11 @@ class DatePicker extends Component {
     };
 
     render(){
-        const calendar = this.state.weeks.map(week=><tr>{week}</tr>);
+        let i = 0;
+        const calendar = this.state.weeks.map(week=>{
+            i++;
+            return <tr key={i}>{week}</tr>
+        });
 
         return (
             <>

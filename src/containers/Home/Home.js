@@ -2,20 +2,16 @@ import React, {Component} from 'react';
 import SearchBar from '../../components/UI/SearchBar/SearchBar';
 import MobileSearchBar from '../../components/UI/SearchBar/MobileSearchBar/MobileSearchBar';
 import classes from './Home.module.css';
-import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 
 class Home extends Component {
     state = {
         location: '',
-        width: document.body.clientWidth
+        width: document.body.clientWidth,
+        height: document.body.clientHeight
     }
 
     componentDidMount(){
         window.addEventListener('resize', this.resizeHandler);
-    }
-
-    searchClickHandler = () => {
-
     }
 
     locationChangedHandler = (event) => {
@@ -27,7 +23,6 @@ class Home extends Component {
     }
 
     resizeHandler = () => {
-        console.log(document.body.clientWidth);
         this.setState({width: document.body.clientWidth});
     }
 
@@ -39,7 +34,6 @@ class Home extends Component {
         }
         return (
             <div className={classes.Home}>
-                <Toolbar/>
                 {searchBar}
             </div>
         );
