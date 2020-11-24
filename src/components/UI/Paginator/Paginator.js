@@ -4,19 +4,19 @@ import ChevronLeft from '../../../assets/icons/chevron-left-solid';
 import ChevronRight from '../../../assets/icons/chevron-right-solid';
 
 const paginator = props => {
-    const leftArrow = props.page === 1 ? null : <div 
+    const leftArrow = props.page === 0 ? null : <div 
         className={classes.Arrow}
         onClick={props.prevPage}>
             <div><ChevronLeft/>
             </div>
         </div>;
-    const rightArrow = props.page === props.totalPages ? null : <div 
+    const rightArrow = props.page !== props.totalPages && props.totalPages > 1 ?  <div 
         className={classes.Arrow}
         onClick={props.nextPage}>
             <div>
                 <ChevronRight/>
             </div>
-        </div>;
+        </div>:null;
     const leftEllipsis = props.page > 4  && props.totalPages > 7 ? <div className={classes.Ellipsis} key="left"><div>···</div></div> : null;
     const rightEllipsis = props.page < props.totalPages - 3  && props.totalPages > 7 ? <div className={classes.Ellipsis} key="right"><div>···</div></div> : null;
     const firstPages = [];
@@ -25,11 +25,11 @@ const paginator = props => {
     
     firstPages.push(<div 
         className={classes.Paginators} 
-        id={'paginator1'}
-        onClick={()=>props.clickedPage(1)}
+        id={'paginator0'}
+        onClick={()=>props.clickedPage(0)}
         key={1}><div>1</div></div>);
     
-    if(props.totalPages !== 1){
+    if(props.totalPages > 1){
         lastPages.push(<div 
             className={classes.Paginators} 
             onClick={()=>props.clickedPage(props.totalPages)}
@@ -98,7 +98,6 @@ const paginator = props => {
         document.getElementById('paginator'+props.page).style.backgroundColor = 'black';
         document.getElementById('paginator'+props.page).style.color = 'white';
     }
-
 
 
     return (

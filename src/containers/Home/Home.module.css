@@ -1,12 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Work+Sans:wght@200&display=swap');
+
 .Home {
     width: 100%;
-    height: 800px;
-    background-image: url(../../assets/img/home.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    display: block;
+    margin-top: 80px;
+}
+
+.HomeTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 90%;
+    height: 130px;
+    margin: 10px auto;
+}
+
+.HomeTitle > h1 {
+    font-family: 'Oswald';
+}
+
+.HomeBody {
+    width: 90%;
+    display: table;
+    margin: 0 auto;
+}
+
+.HomeDetails{
+    width: 65%;
+    height: fit-content;
+    display: table-cell;
+}
+
+.Space, .Summary, .Notes, .Access {
+    width: 100%;
+    height: fit-content;
+}
+
+.SpaceTitle, .AccessTitle, .NotesTitle, .SummaryTitle{
+    width: 100%;
+    height: 40px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Oswald';
+}
+
+.SpaceDetails, .AccessDetails, .NotesDetails, .SummaryDetails {
+    width: 100%;
+    height: fit-content;
+    text-align: left;
+    height: fit-content;
+    margin-bottom: 20px;
+    font-family: 'Open Sans';
+}
+
+.DatePicker {
+    display: flex;
     justify-content: center;
-    position: absolute;
-    position: fixed;
+}
+
+.HomeCheckout {
+    width: 34%;
+    display: table-cell;
+    padding-top: 0;
+    margin-top: 0;
+    height: 100%;
+    vertical-align: top;
+    padding-bottom: 220px;
+}
+
+.Checkout {
+    width: 90%;
+    height: 150px;
+    margin: 0 auto;
+    position: sticky;
+    top: 0;
+}
+.HomeBodySpacer {
+    height: 80px;
+    width: 100%;
+}
+
+.CheckoutDiv {
+    height: 260px;
+    width: 100%;
+    border: 1px solid #DDD;
+    border-radius: 10px;
+    box-shadow : 3px 0px 20px -10px #CCC, -3px 0px 20px -10px #CCC, 0px 5px 5px -5px #CCC !important;
+}
+
+
+
+.PriceReviews {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 90%;
+    height: 50px;
+    margin: 10px auto;
+}
+
+.PriceReviews > div {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    font-family: 'Roboto';
+}
+
+.PriceReviews > .Reviews > div {
+    height: 100%;
+}
+
+.PriceReviews > div > span {
+    font-size: 30px;
+    font-family: 'Oswald';
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.PriceReviews > .Price {
+    width: fit-content;
+}
+
+.Search {
+    height: 100px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.Dates {
+    width: 100%;
+    height: 50%;
+}
+
+.Dates > div {
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.Dates > div {
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+.Dates > div > div, .Guests > div {
+    font-size: 13px;
+    font-family: 'Roboto Condensed';
+    width: fit-content;
+}
+
+.Guests {
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+.CheckIn{
+    border: 2px solid #DDD;
+    border-top-left-radius: 10px;
+    border-right: 1px solid #DDD;
+}
+
+.CheckOut {
+    border: 2px solid #DDD;
+    border-top-right-radius: 10px;
+    border-left: 1px solid #DDD;
+}
+
+.Guests {
+    width: 100%;
+    height: 50%;
+    border: 2px solid #DDD;
+    box-sizing: border-box;
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.CheckAvailability {
+    border: 2px solid #B02E0C;
+    border-radius: 10px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10px;
+    height: 50px;
+    background-color: #B02E0C;
+    color: white;
+    font-size: 24px;
+    font-family: 'Roboto Condensed';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.PropertySummary {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    border-bottom: 2px solid #DDD;
+    margin-bottom: 20px;
+}
+
+.PropertyType {
+    font-size: 26px;
+    font-family: 'Roboto Condensed';
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.PropertyTypeLabel {
+    width: 90%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.SummaryLabel {
+    font-size: 18px;
+    color: #333;
+}
+
+.HostThumbnail {
+    width: 10%;
+}
+
+.HostThumbnail {
+    height: 55px;
+    width: 55px;
+}
+.HostThumbnail > img{
+    border-radius: 30px;
+    width: 55px;
+    height: 55px;
+}
+
+.Location {
+    height: 600px;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.Location > div {
+    width: 100%;
+}
+
+.SectionLabel {
+    font-size: 26px;
+    font-family: 'Roboto Condensed';
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: left;
+    border-bottom: #CCC 2px solid;
+    padding-bottom: 10px;
+}
+
+.Host {
+    height: 400px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.HostTitle {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.HostLabel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.HostName {
+    font-family: 'Roboto Condensed';
+    font-size: 24px;
+}
+
+.HostJoinDate {
+    font-family: 'Roboto Condensed';
+    color: #333;
+    font-size: 14px;
+}
+
+.HostSectionThumbnail {
+    height: 75px;
+    width: 75px;
+    margin: 10px;
+}
+.HostSectionThumbnail > img{
+    border-radius: 100%;
+    width: 75px;
+    height: 75px;
+}
+
+.HostInfo {
+    display: flex;
+}
+
+.HostInfo > div {
+    width: 50%;
+}
+
+.HostAbout {
+    text-align: left;
+    margin: 0px;
+    font-family: 'Open Sans'
+}
+
+.Carousel {
+    border-radius: 10px;
+    height: 40vh;
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.ImageDiv {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.Amenities {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 5px;
+}
+
+@media(max-width: 900){
+    .Location{
+        width: 70%;
+    }
 }

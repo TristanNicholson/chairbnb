@@ -1,0 +1,78 @@
+
+.Location {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.Title {
+    font-size: 18px;
+    text-align: left;
+    font-family: 'Roboto Condensed';
+}
+
+
+p {
+    text-align: left;
+    font-family: 'Open Sans';
+}
+
+.Field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.InputLabel {
+    font-family: 'Roboto Condensed';
+    font-size: 20px;
+    text-align: left;
+    margin-bottom: 10px;
+    display: block;
+    width: fit-content;
+}
+
+.InfoHeader {
+    font-family: 'Roboto Condensed';
+    font-size: 20px;
+    color: rgb(118, 118, 118);
+    width: 100%;
+    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.InputWhole {
+    width: 90%;
+    margin-bottom: 15px;
+}
+
+.InputHalf {
+    width: 90%;
+    margin-bottom: 15px;
+}
+
+.FieldHalf {
+    display: flex;
+    width: 93%;
+    justify-content: space-between;
+}
+
+.FieldHalf > div {
+    width: fit-content;
+}
+
+@media(max-width: 450px){
+    .Title > h3 {
+        font-size: 18px;
+        margin: 0 0;
+        margin-bottom: 5px;
+    }
+    .InputLabel {
+        font-size: 18px;
+    }
+}

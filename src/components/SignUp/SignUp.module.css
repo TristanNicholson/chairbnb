@@ -1,0 +1,67 @@
+.SignUp {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+
+.Fields {
+    width: 100%;
+}
+
+.Field {
+    height: 90px;
+    width: 80%;
+}
+
+.Fields > div > input {
+    width: 300px;
+    height: 22px;
+    font-size: 16px;
+}
+.Title {
+    height: 50px;
+    width: 90%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'Oswald';
+    font-size: 24px;
+    border-bottom: 2px solid #BBB;
+}
+
+.Button {
+    width: 100px;
+    height: 30px;
+    font-family: 'Roboto Condensed';
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.Button:hover {
+    color: white;
+    background-color: black;
+}
+
+.SignUp p {
+    font-size: 11px !important;
+    color: red;
+}
+
+.SignUp form {
+    width: 100%;
+}
+
+.Label {
+    font-family: 'Roboto';
+    font-size: 18px;
+    width: 100%;
+    text-align: left;
+}

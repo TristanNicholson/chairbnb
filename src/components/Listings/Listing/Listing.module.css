@@ -2,9 +2,10 @@
 
 .Listing {
     width: 100%;
-    height: 190px;
+    height: fit-content;
     background-color: white;
     display: flex;
+    flex-wrap: wrap;
     padding-bottom: 10px;
     border-bottom: 1px solid rgb(221, 221, 221);
     font-family: 'Open Sans', 'sans-serif';
@@ -13,7 +14,6 @@
 }
 
 .ListingImages {
-    width: 33%;
     background-color: black;
     border-radius: 12px;
     overflow: hidden;
@@ -23,10 +23,7 @@
 }
 
 .ListingSummary {
-    width: 67%;
-    height: 100%;
-    margin-left: 10px;
-    margin-bottom: 15px;
+    height: 190px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -34,11 +31,43 @@
     box-sizing: border-box;
 }
 
+.NavLink {
+    width: 100%;
+    height: 60%;
+    text-decoration: none;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.Status {
+    width: fit-content;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Status > div {
+    border: 2px solid black;
+    width: 100px;
+    text-align: center;
+}
+.StatusActive {
+    color: green;
+}
+.StatusInactive {
+    color: blue;
+}
+.StatusUnfinished {
+    color: orangered;
+}
+
 .ListingPriceReview {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .ListingTitle {
@@ -46,14 +75,29 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-around;
-    height: 50%;
+    height: 100%;
+    width: 100%;
+    color: rgb(113, 113, 113);
 }
 .ListingTitle > p, .ListingTitle > h3 {
     margin: 2px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+    text-align: left;
+   
+}
+
+.ListingTitle > div {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 13px;
 }
 .ListingTitle > h3 {
     color: black;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .ListingHover {
@@ -83,12 +127,65 @@ img {
 
 .TotalPrice {
     text-decoration: underline;
+    display: flex;
 }
 
-.PricePerNight > span {
+.Manage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.ManageButtons {
+    width: fit-content;
+    display: flex;
+}
+
+.ManageButtons > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Edit {
+    background-color: gold;
+    text-decoration: none;
+    width: 80px;
+    height: 25px;
+    border-radius: 5px;
+    color: black;
+    margin-right: 15px;
+}
+
+.Delete {
+    background-color: red;
+    text-decoration: none !important;
+    width: 80px;
+    height: 25px;
+    border-radius: 5px;
+    color: white;
+}
+
+.Activate {
+    background-color: powderblue;
+    color: black;
+    text-decoration: none !important;
+    width: 80px;
+    height: 25px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.PricePerNight > div >  span {
     font-weight: 900;
     font-size: 30px;
     color: black;
+}
+.PricePerNight {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .Reviews {
@@ -110,3 +207,293 @@ img {
     width: 100%;
     height: 100%;
 }
+
+.active {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.ImageDiv {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.AddOnSeparator {
+    width: 60%;
+    border-bottom: 1px solid #008489;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.Booking {
+    width: 100%;
+    height: fit-content;
+    margin-top: 15px;
+}
+
+.DatesAndPrice {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: fit-content
+}
+
+.Dates {
+    font-family: 'Open Sans';
+    font-size: 24px;
+    color: black
+}
+
+.BookingPrice{
+    font-family: 'Open Sans';
+    font-size: 14px;
+}
+
+.Users {
+    width: 100%;
+    height: 70px;
+    display: flex;
+}
+
+.Users > div {
+    width: 50%;
+    height: 100%;
+}
+
+.UserLabel {
+    text-align: left;
+}
+
+.UserInfo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.UserName {
+    font-size: 16px;
+    font-family: 'Open Sans';
+    width: fit-content;
+}
+
+.UserThumbnail {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 100%;
+}
+
+.HostingControls {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    height: fit-content;
+    margin: 10px 0;
+}
+
+.HostingControls > div {
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.Accept {
+    background-color: #008489;
+}
+
+.Deny {
+    background-color: tomato;
+}
+
+.PendingApproval, .Approved {
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+    font-family: 'Open Sans';
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.PendingApproval > div {
+    color: tomato;
+}
+
+.Approved > div {
+    color: #008489;
+}
+
+.GuestInfo {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 13px;
+}
+
+.GuestInfo span {
+    color: black;
+    font-size: 16px;
+}
+
+@media(min-width: 200px){
+    .ListingImages {
+        display: block;
+        height: 170px;
+        width: 95vw;
+    }
+    .ListingSummary {
+        display: block;
+        width: 100%;
+        padding-left: 0;
+        height: fit-content;
+    }
+    .Listing {
+        height: fit-content;
+        justify-content: center;
+    }
+    .ManageButtons {
+        display: block;
+    }
+    .ManageButtons > div {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media(min-width: 325px){
+    .ListingImages {
+        display: block;
+        height: 220px;
+        width: 95vw;
+    }
+    
+}
+
+@media(min-width: 375px){
+    .ListingImages {
+        display: block;
+        height: 270px;
+        width: 90vw;
+    }
+    .ListingSummary {
+        display: flex;
+        width: 100%;
+        padding-left: 0;
+        height: fit-content;
+    }
+    .Listing {
+        height: fit-content;
+        justify-content: center;
+    }
+    .Manage {
+        display: block;
+    }
+    .Status {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .ManageButtons {
+        width: 100%;
+        justify-content: space-evenly;
+
+    }
+    .ManageButtons > div {
+        margin-right: 0;
+    }
+
+    .ListingTitle > h3 {
+        font-size: 18px;
+    }
+
+    .ListingTitle > div {
+        font-size: 16px;
+    }
+}
+
+@media(min-width: 500px){
+    .ListingTitle > h3 {
+        font-size: 15px;
+    }
+    .ListingTitle > div {
+        font-size: 13px;
+    }
+    .PricePerNight > span {
+        font-size: 25px;
+    }
+    .Listing {
+        font-size: 14px;
+    }
+    .ListingImages {
+        height: 150px;
+        width: 30vw;
+    }
+    .ListingSummary{
+        height: 150px;
+        width: calc( 100% - 30vw );
+    } 
+    .NavLink {
+        padding-left: 10px;
+    }
+    .ListingPriceReview {
+        padding-left: 10px;
+    }
+}
+
+@media(min-width: 600px){
+    .ListingImages {
+        display: block;
+        height: 190px;
+        width: 30vw;
+    }
+    .ListingSummary{
+        width: calc( 100% - 30vw );
+        height: 190px;
+    } 
+
+    .ListingTitle > h3 {
+        font-size: 18px;
+    }
+    .ListingTitle > div {
+        font-size: 15px;
+    }
+}
+
+@media(min-width: 900px){
+    .ListingImages {
+        height: 190px;
+        width: 22vw;
+    }
+
+    .ListingSummary{
+        width: calc( 100% - 22vw );
+    }
+}
+
+@media(min-width: 1120px){
+    .ListingImages {
+        height: 190px;
+        width: 30vw;
+    }
+
+    .ListingSummary{
+        width: calc( 100% - 30vw );
+    }
+}
+

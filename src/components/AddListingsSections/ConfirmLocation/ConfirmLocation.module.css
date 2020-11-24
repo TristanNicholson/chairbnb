@@ -1,0 +1,35 @@
+.ConfirmLocation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.Title {
+    font-size: 18px;
+    text-align: left;
+    font-family: 'Roboto Condensed';
+}
+
+.SubTitle {
+    font-size: 16px;
+    text-align: left;
+}
+
+.Address {
+    font-family: 'Open Sans';
+    font-size: 18px;
+}
+
+
+@media(max-width: 450px){
+    .Title > h3 {
+        font-size: 18px;
+        margin: 0 0;
+        margin-bottom: 5px;
+    }
+    .InputLabel {
+        font-size: 18px;
+    }
+}

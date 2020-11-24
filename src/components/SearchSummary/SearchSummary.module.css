@@ -1,17 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto&display=swap');
-
 .SearchSummary {
-    height: 160px;
+    height: auto;
     width: 96%;
     padding-top: 15px;
-    margin: 20px;
+    margin: 10px 20px;
     font-family: 'Open Sans';
     border-bottom: 1px solid rgb(221, 221, 221);
 }
 .SearchSummary > section > h2 {
     font-family: 'Roboto';
     font-weight: bold;
-    font-size: 30px;
+    font-size: 30px;  
 }
 
 .SearchSummary > section {
@@ -21,9 +19,44 @@
     justify-content: space-evenly;
     width: 90%;
     box-sizing: border-box;
-
+    
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .Filters {
     display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    margin-bottom: 5px;
+}
+.Filters > button {
+    margin-bottom: 5px;
+}
+
+@media(max-width: 690px){
+    .SearchSummary{
+        width: 94%;
+    }
+}
+
+@media(max-width: 500px){
+    .SearchSummary {
+        margin: 5px 10px;
+    }
+    .SearchSummary > section > div {
+        font-size: 14px;
+    }
+    .SearchSummary > section > h2 {
+        font-size: 24px;
+    }
+}
+@media(max-width: 350px){
+    .SearchSummary > section > div {
+        font-size: 13px;
+    }
+    .SearchSummary > section > h2 {
+        font-size: 20px;
+    }
 }

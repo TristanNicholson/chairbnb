@@ -6,43 +6,44 @@ import SearchSummary from '../../components/SearchSummary/SearchSummary';
 import Paginator from '../../components/UI/Paginator/Paginator';
 import {connect} from 'react-redux';
 import * as actions from '../../store/actions/index.js';
-import mapboxgl from 'mapbox-gl';
-import { renderToString } from 'react-dom/server';
-import {Splide, SplideSlide} from '@splidejs/react-splide';
-
-mapboxgl.accessToken = 'pk.eyJ1IjoidG5pY2hvbHNvbjEiLCJhIjoiY2tlYXlpeDZ1MDNqazJ1bGltZXN1OTg2MSJ9.Qag5hswCPVgnAt1sq3oSPw';
+import Map from '../Map/Map';
+import MapIcon from '../../assets/icons/map-marked-alt-solid';
+import Modal from '../../components/UI/Modal/Modal';
 
 class ListingsPage extends Component {
     state = {
         map: null,
+        mapMarkers: [],
         size: { 
             width: document.body.clientWidth,
             height: document.body.clientHeight
         },
-        page: 1
+        page: 1,
+        showMap: false
     };
 
-    mapMarkers = [];
-
     resizeHandler = () => {
+        console.log(this.state.size.width+' '+this.state.size.height);
+        if(this.state.size.width < 900){
+            this.setState({showMap : false});
+        }else{
+            this.setState({showMap : true});
+        }
         this.setState({ size: {width: document.body.clientWidth, height: document.body.clientHeight} });
     }
 
     componentDidMount(){
-        const map = new mapboxgl.Map({
-            container: this.mapContainer,
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: [this.props.mapCenter[0], this.props.mapCenter[1]]
-        });
-        map.addControl(new mapboxgl.NavigationControl());
+        if(this.state.size.width < 900){
+            this.setState({showMap : false});
+        }else{
+            this.setState({showMap : true});
+        }
         this.parseUrlParams();
-        this.setState({map: map});
     };
 
     parseUrlParams(){
         const query = new URLSearchParams(this.props.location.search);
-
-        // window.addEventListener('resize', this.resizeHandler);
+        window.addEventListener('resize', this.resizeHandler);
 
         let params = {};
         for (let param of query.entries()) {
@@ -72,63 +73,19 @@ class ListingsPage extends Component {
         this.setState({ page: parseInt(page)});
     }
 
-    componentDidUpdate(prevProps, prevState){
-        if(prevProps.mapCenter !== this.props.mapCenter){
-            this.state.map.setCenter({lat: this.props.mapCenter[0], lng: this.props.mapCenter[1]});
-            const kilometer =  0.00909090909;
-            this.state.map.fitBounds([
-                [this.props.mapCenter[1] - 10*kilometer, this.props.mapCenter[0] - 10*kilometer],
-                [this.props.mapCenter[1] + 10*kilometer, this.props.mapCenter[0] + 10*kilometer]
-            ]);
-        }
-        if(prevProps.listings !== this.props.listings){
-            for(let marker of this.props.listings){
-                let el = document.createElement('div');
-                let price = document.createTextNode(`$${marker.price}`);
-                el.appendChild(price);
-                el.setAttribute('id',marker._id);
-                el.className = classes.Marker;
-
-                this.mapMarkers.push(new mapboxgl.Marker(el)
-                .setLngLat(marker.address.location.coordinates)
-                .setPopup(new mapboxgl.Popup({ offset: 25, className: classes.Popup}) // add popups
-                .setHTML(renderToString(
-                    <div>
-                        <div className={classes.PopupImage} style={{backgroundImage: 'url("'+marker.images.thumbnailUrl+'")'}}>
-                        </div>
-                        <div className={classes.PopupSummary}>
-                            <div className={classes.PopupReviews}>
-                                <div className={classes.ReviewsIcon}>
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" className="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg>
-                                </div>
-                                <div>{marker.ratings.overall/20.0} (50)</div>
-                            </div>
-                            <div className={classes.PopupName}>
-                                <div>{marker.name}</div>
-                                <div>{marker.roomType} · {marker.address.neighborhood ? marker.address.neighborhood : marker.address.city}</div>
-                            </div>
-                            <div className={classes.PopupPrice}>
-                                <div><span>{'$'+marker.price}</span> /night</div>
-                            </div>
-                        </div>
-                    </div>)))
-                .addTo(this.state.map));        
-            }  
-        }
-    }
-
     listingMouseEnterLeaveHandler = (id, enterLeave) => {
-        if(this.mapMarkers.length !== 0){
+        if(this.state.mapMarkers.length !== 0){
+            const marker = document.getElementById(id);
             if(enterLeave === 'enter'){
-                document.getElementById(id).style.backgroundColor = 'black';
-                document.getElementById(id).style.color = 'white';
-                document.getElementById(id).style.zIndex = '600';
-                document.getElementById(id).style.border = '1px solid black';
+                marker.style.backgroundColor = 'black';
+                marker.style.color = 'white';
+                marker.style.zIndex = '600';
+                marker.style.border = '1px solid black';
             }else{
-                document.getElementById(id).style.backgroundColor = 'white';
-                document.getElementById(id).style.color = 'black'
-                document.getElementById(id).style.zIndex = '0';
-                document.getElementById(id).style.border = '1px solid rgb(221, 221, 221)';
+                marker.style.backgroundColor = 'white';
+                marker.style.color = 'black'
+                marker.style.zIndex = '0';
+                marker.style.border = '1px solid rgb(221, 221, 221)';
             }
         }  
     };
@@ -146,13 +103,15 @@ class ListingsPage extends Component {
             search: newUrlSearch
         });
 
-        for(let marker of this.mapMarkers){
+        for(let marker of this.state.mapMarkers){
             marker.remove();
         }    
-        this.mapMarkers = [];
 
         this.setState((prevState)=>{
-            return {page: page};
+            return {
+                page: page,
+                mapMarkers: []
+            };
         });
 
         this.parseUrlParams();
@@ -172,13 +131,15 @@ class ListingsPage extends Component {
                 search: newUrlSearch
             });
 
-            for(let marker of this.mapMarkers){
+            for(let marker of this.state.mapMarkers){
                 marker.remove();
             }    
-            this.mapMarkers = [];
 
             this.setState((prevState)=>{
-                return {page: prevState.page - 1};
+                return {
+                    page: prevState.page - 1,
+                    mapMarkers: []
+                };
             });
 
             this.parseUrlParams();
@@ -198,19 +159,39 @@ class ListingsPage extends Component {
             search: newUrlSearch
         });
 
-        for(let marker of this.mapMarkers){
+        for(let marker of this.state.mapMarkers){
             marker.remove();
         }    
-        this.mapMarkers = [];
 
         this.setState((prevState)=>{
-            return {page: prevState.page+1};
+            return {
+                page: prevState.page+1,
+                mapMarkers: []
+            };
         });
 
         this.parseUrlParams();
     }
 
+    setMapMarkersHandler = (mapMarkers) => {
+        this.setState({mapMarkers: mapMarkers});
+    };
+
+    showMapHandler = () => {
+        console.log('here');
+        this.setState({showMap: true});
+    };
+
+    closeMapHandler = () => {
+        this.setState({showMap: false});
+    };
+
     render(){
+        let mapButton = null;
+        if(this.state.size.width < 900){
+            mapButton = <div className={classes.MapButton} onClick={this.showMapHandler}><div><div><MapIcon/></div><div>Map</div></div></div>
+        }
+
         return (
             <div className={classes.ListingsPage}>
                 <div className={classes.Listings}>
@@ -221,19 +202,39 @@ class ListingsPage extends Component {
                         checkInDate={this.props.checkInDate}
                         checkOutDate={this.props.checkOutDate}
                         ></SearchSummary>
-                    <Listings mouseEnterLeave={this.listingMouseEnterLeaveHandler} listings={this.props.listings}/>
+                    {mapButton}
+                    {this.props.listings.length === 0 ? 
+                        <div className={classes.NoHomes}>No homes found</div>
+                    :null}
+                    <Listings 
+                        mouseEnterLeave={this.listingMouseEnterLeaveHandler} 
+                        listings={this.props.listings}/>
+                    {this.props.listings.length > 0 ? 
                     <Paginator
                         nextPage={this.nextPageHandler}
                         prevPage={this.prevPageHandler}
                         clickedPage={this.clickedPageHandler}
                         page={this.state.page}
-                        totalPages={Math.ceil(this.props.count/20)}/>
+                        totalPages={Math.ceil(this.props.count/20)}/>:null}
                 </div>
-                <div className={classes.Map}>
-                    <div>
-                        <div ref={el => this.mapContainer = el} className={classes.MapContainer} />
-                    </div>
-                </div>  
+                <Map
+                    width={this.state.size.width}
+                    mapCenter={this.props.mapCenter}
+                    listings={this.props.listings}
+                    mapMarkers={this.state.mapMarkers}
+                    setMapMarkers={this.setMapMarkersHandler}
+                    showMap={this.state.showMap}
+                    type='homes'>
+                        <div 
+                            className={classes.CloseMap}
+                            onClick={this.closeMapHandler}>
+                            <div>
+                                <div className={classes.LeftX}></div>
+                                <div className={classes.RightX}></div>
+                            </div>   
+                        </div>
+                </Map>
+                 
             </div>
         );
     }

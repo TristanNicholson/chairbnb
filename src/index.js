@@ -8,13 +8,24 @@ import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
 import  {Provider} from 'react-redux';
 import searchBarReducer from './store/reducers/searchBar';
 import mapReducer from './store/reducers/map';
+import currentHomeReducer from './store/reducers/home';
+import authReducer from './store/reducers/auth';
+import profileReducer from './store/reducers/profile';
+import listingsReducer from './store/reducers/listings';
+import bookingsReducer from './store/reducers/bookings';
 import thunk from 'redux-thunk';
+
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
     searchBar: searchBarReducer,
-    map: mapReducer
+    map: mapReducer,
+    currentHome: currentHomeReducer,
+    auth: authReducer,
+    profile: profileReducer,
+    listings: listingsReducer,
+    bookings: bookingsReducer
 });
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));

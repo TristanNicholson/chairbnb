@@ -24,6 +24,7 @@ class DatePicker extends Component {
     }
 
     renderCalendar(){
+        console.log(this.props.checkInDate);
         const newWeeks = [[],[],[],[],[],[]];
         const date = new Date();
         const dateDay = date.getDate();
@@ -108,11 +109,14 @@ class DatePicker extends Component {
 
         return (
             <>
-                <div className={classes.DatePicker} id="SearchBar">
+                <div className={classes.DatePicker} id="SearchBar" style={this.props.style}>
                     <div>
                         <div className={classes.Month}>
                             <div onClick={this.moveMonthLeftHandler} className={classes.ChevronLeft}><ChevronLeft/></div>
-                            <div className={classes.MonthLabel}>{MONTHS[this.state.month]}</div>
+                            <div className={classes.MonthLabel}>
+                                {MONTHS[this.state.month]}
+                                <div className={classes.Year}>{this.state.year}</div>
+                            </div>
                             <div onClick={this.moveMonthRightHandler} className={classes.ChevronRight}><ChevronRight/></div>
                         </div>
                         <div>

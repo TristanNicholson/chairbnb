@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Work+Sans:wght@200&display=swap');
+
+.ManageListings {
+    width: 100%;
+    height: calc( 100% - 70px);
+    margin-top: 70px;
+}
+
+.Header {
+    height: 90px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    margin: 0 5%;
+    border-bottom: 2px solid #CCC;
+}
+
+.Title {
+    font-family: 'Montserrat';
+    font-size: 28px;
+    color: black;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.AddListing {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+}
+
+.AddListingLink > div {
+    background-color: #008489;
+    border-radius: 4px;
+    padding: 10px 25px;
+    color: white;
+}
+
+
+.Listings {
+    display: block;
+    width: 95%;
+    margin: 0 2.5%;
+}
+
+.NoListings {
+    width: 100%;
+    text-align: center;
+    font-family: 'Open Sans';
+    font-size: 25px;
+    height: 50px;
+}
+
+@media(max-width: 450px){
+    .Title {
+        font-size: 24px;
+    }
+    .Header {
+        height: 65px;
+    }
+}
+
+@media(max-width: 350px){
+    .AddListingLink > div{
+        padding: 8px 15px;
+    }
+    .Title {
+        font-size: 20px;
+    }
+    .Header {
+        height: 55px;
+    }
+}
+
+@media(max-width: 300px){
+    .AddListingLink > div{
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    .Title {
+        font-size: 18px;
+    }
+    .Header {
+        height: 50px;
+    }
+}

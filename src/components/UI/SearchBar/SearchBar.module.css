@@ -11,6 +11,7 @@
     margin: 100px auto;
     margin-bottom: 15px;
     border: 1px solid rgb(221, 221, 221);
+    
 }
 
 .SearchBarActive {
@@ -141,6 +142,16 @@
     animation-timing-function: linear;
     width: 68px;
     margin-left: 10px;
+}
+
+.DatePicker{
+    position: absolute;
+    z-index: 2;
+}
+
+.GuestsPicker{
+    position: absolute;
+    z-index: 2;
 }
 
 .SearchInactive {

@@ -1,0 +1,16 @@
+.Modal {
+    position: fixed;
+    z-index: 500;
+    width: fit-content;
+    height: fit-content;
+    transition: all 0.3s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    left: 50%;
+    margin-left: -37.5%;
+    height: 75%;
+    top: 100px;
+    overflow-x: visible;
+}

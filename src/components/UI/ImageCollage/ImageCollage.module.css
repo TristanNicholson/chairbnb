@@ -1,0 +1,106 @@
+.ImageCollage {
+    height: 360px;
+    width: 90%;
+    margin: 10px auto;
+    position: relative;
+    display: block;
+    z-index: 0;
+}
+
+.Image1, .Image2, .Image3, .Image4, .Image5 {
+    display: none;
+    width: 50%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: #B02E0C;
+} 
+
+.Image1 {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.Image3 {
+    border-top-right-radius: 10px;
+}
+
+.Image5 {
+    border-bottom-right-radius: 10px;
+}
+
+
+.MainImage {
+    width: 50%;
+    height: 100%;
+    display: inline-block;
+}
+.ImageGallery {
+    width: 50%;
+    height: 100%;
+    display: inline-block;
+}
+
+.ImageGallery > div {
+    width: 100%;
+    height: 50%;
+    box-sizing: border-box;
+}
+
+.ShowAll {
+    width: 120px;
+    height: 30px;
+    font-size: 16px;
+    font-family: 'Roboto Condensed';
+    color: black;
+    background-color: white;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 500;
+}
+
+.ListingImages {
+    width: 90%;
+    height: 500px;
+}
+
+.ListingImages > div {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border-radius: 12px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.ImageSlide {
+    width: 600px;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.ImageDiv {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+
+.Carousel {
+    border-radius: 10px;
+    height: 70vh;
+    width: 90vw;
+}

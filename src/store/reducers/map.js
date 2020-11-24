@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    center: [5,34]
+    center: [0,0]
 }
 
 const reducer = (state = initialState, action) => {
@@ -13,8 +13,9 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 center: latLng
             };
+        default:
+            return state;
     }
-    return state;
 }
 
 export default reducer;

@@ -1,0 +1,116 @@
+
+.CustomSelectWrapper {
+    position: relative;
+    user-select: none;
+    width: 100%;
+}
+.CustomSelect {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+}
+.CustomSelect__trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #3b3b3b;
+    height: 45px;
+    line-height: 45px;
+    background: #ffffff;
+    cursor: pointer;
+    border: 1px solid #008489;
+    border-radius: 8px;
+}
+.CustomOptions {
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid rgb(176, 176, 176);
+    border-radius: 8px;
+    background: #fff;
+    transition: all 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 2;
+    overflow-y: scroll;
+    height: 225px;
+
+}
+.CustomSelect.Open .CustomOptions {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+.CustomOption {
+    position: relative;
+    display: block;
+    padding: 0 22px 0 22px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #3b3b3b;
+    line-height: 45px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.CustomOption:hover {
+    cursor: pointer;
+    background-color: #b2b2b2;
+}
+.CustomOption.Selected {
+    color: #ffffff;
+    background-color: #B02E0C;
+}
+
+
+.Arrow {
+    position: relative;
+    height: 15px;
+    width: 15px;
+}
+.Arrow::before, .Arrow::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    width: 0.15rem;
+    height: 100%;
+    transition: all 0.5s;
+}
+.Arrow::before {
+    left: -5px;
+    transform: rotate(45deg);
+    background-color: black;
+}
+.Arrow::after {
+    left: 5px;
+    transform: rotate(-45deg);
+    background-color: black;
+}
+.Open .Arrow::before {
+    left: -5px;
+    transform: rotate(-45deg);
+}
+.Open .Arrow::after {
+    left: 5px;
+    transform: rotate(45deg);
+}
+
+
+@media(max-width: 450px){
+    .CustomSelect__trigger {
+        height: 35px;
+    }
+    .CustomOption {
+        height: 35px;
+    }
+    .CustomOptions {
+        height: 175px;
+    }
+}

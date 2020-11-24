@@ -1,0 +1,191 @@
+.AddListing {
+    width: 100%;
+    height: calc(100vh - 70px);
+    margin-top: 70px;
+    display: flex;
+}
+.Background {
+    width: 50%;
+    height: 100%;
+    background: url('../../assets/img/lone_cottage.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.AddInfo {
+    width: 50%;
+    height: 100%;
+}
+.Info {
+    width: 100%;
+    height: calc( 100% - 90px );
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-sizing: border-box;
+}
+
+.Info > div {
+    height: 100%;
+    width: 100%;
+}
+
+.Header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 80px;
+    width: 100%;
+}
+
+.Header > div {
+    width: 90%;
+    text-align: left;
+}
+
+.Header > div > h2 {
+    font-family: 'Oswald';
+    font-size: 35px;
+    border-bottom: 2px solid #CCC;
+    padding-bottom: 10px;
+    margin: 0 0;
+    margin-top: 15px;
+}
+
+.Header > div > p {
+    font-family: 'Roboto Condensed';
+    font-size: 20px;
+}
+
+.InfoSections {
+    height: calc( 100% - 90px );
+    overflow-y: scroll;
+}
+
+.BackNext {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Roboto Condensed';
+    font-size: 18px;
+    background-color: white;
+}
+
+.Back {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+.Next {
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #008489;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Chevron {
+    height: 25px;
+    display: flex;
+    align-items: center;
+}
+.Chevron > svg {
+    height: 25px;
+}
+
+.Modal {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.ModalTitle {
+    font-size: 20px;
+    font-family: 'Oswald';
+    text-align: left;
+    width: 100%;
+}
+
+.ModalSections {
+    font-size: 16px;
+    font-family: 'Open Sans';
+    text-align: left;
+    width: 100%;
+}
+
+@media (max-width: 1200px){
+    .AddInfo {
+        width: 600px;
+    }
+    .BackNext {
+        width: 600px;
+    }
+}
+
+@media (max-width: 690px){
+
+    .Info {
+        height: calc( 100% - 70px );
+    }
+    .AddListing {
+        width: 100%;
+        height: calc( 100vh - 50px );
+        margin-top: 50px;
+    }
+
+    .AddInfo {
+        height: calc( 100vh - 50px );
+        width: 100%;
+    }
+    .Background {
+        display: none;
+    }
+    .BackNext {
+        height: 70px;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+    }
+
+    .Header > div > h2 {
+        font-size: 28px;
+    }
+    .Title > h3 {
+        margin: 0 5px !important;
+    }
+}
+
+@media(max-width: 450px){
+    .Header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .Header > div > h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+    .Info{
+        padding: 0 10px;
+    }
+}

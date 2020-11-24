@@ -1,0 +1,73 @@
+.Policies {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.StayLength {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.StayLength > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Label {
+    font-family: 'Roboto Condensed';
+    font-size: 20px;
+    color: black;
+}
+
+.Input {
+    border: 1px solid #008489;
+    border-radius: 5px;
+    width: 80px;
+    height: 30px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.Input:focus {
+    outline: none;
+}
+
+.SubTitle {
+    font-family: 'Oswald';
+    font-size: 22px;
+    margin-top: 15px;
+    color: rgb(118, 118, 118);
+}
+
+p {
+    text-align: left;
+    font-family: 'Open Sans';
+    font-size: 13px;
+}
+
+.DatePicker {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media(max-width: 450px){
+    .SubTitle {
+        font-size: 18px;
+        text-align: left;
+    }
+    .FirstSubTitle {
+        margin-top: 0;
+    }
+    .Label {
+        font-size: 18px;
+    }
+}

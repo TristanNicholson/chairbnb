@@ -3,119 +3,75 @@
     height: calc( 100% - 70px);
     margin-top: 70px;
     display: flex;
+    background-color: white;
 }
 .Listings {
     width: 800px;
     height: calc( 100vh - 70px );
     overflow-y: auto;
 }
-.Map {
-    width: calc( 100% - 800px);
-    height: 100vh
-}
 
-.Map > div {
-    width: 100%;
-    position: relative;
-    height: 100%;
-    height: calc( 100% - 70px );
-}
-
-.MapContainer {
+.CloseMap {
     position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    height: calc( 100vh - 70px );
-    width: 100%;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background-color: white;
+    height: 34px;
+    width: 34px;
+    border-radius: 4px;
+    box-shadow: 0 0 0 2px rgba(0,0,0,.1);
 }
 
-.Marker {
-    width: 48px;
-    height: 30px;
-    background-color: white;
-    border-radius: 20px;
-    color: black;
-    font-size: 12px;
-    border: 1px solid rgb(221, 221, 221);
+.CloseMap > div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.LeftX, .RightX {
+    position: absolute;
+    top: 15px;
+    left: 6px;
+    height: 4px;
+    width: 24px;
+    background-color: black;
+    border-radius: 5px;
+}
+
+.LeftX {
+    transform: rotate(45deg);
+}
+
+.RightX {
+    transform: rotate(-45deg);
+}
+
+.MapButton {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Roboto';
-    font-weight: bold;
-}
-
-.Marker:hover {
-    height: 35px;
-    width: 53px;
-    transition: 0.1s linear;
-    z-index: 500;
-}
-.Popup {
-    border-radius: 6px;
-    z-index: 1000;
-}
-
-.Popup > div {
-    padding: 0;
-    border-radius: 6px;
-    width: 250px;
-}
-
-.PopupImage {
+    height: 50px;
     width: 100%;
-    height: 150px;
-    overflow-y: hidden;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
 }
 
-.PopupImage > img {
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-}
-
-.PopupSummary {
-    height: 100px;
-    width: 100%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-family: 'Open Sans';
-}
-
-.PopupName {
-    font-size: 14px;
-    font-weight: 900;
-    width: 100%;
-    font-family: 'Open Sans';
+.MapButton > div {
+    height: 40px;
+    width: 90px;
+    border: 1px solid black;
+    border-radius: 20px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    overflow-x: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    box-sizing: border-box;
-    padding: 5px;
-}
-
-.PopupName > div {
-    overflow-x: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 100%;
-    text-align: start;
-    box-sizing: border-box;
-}
-
-.PopupReviews {
-    display: flex;
+    justify-content: space-evenly;
     align-items: center;
-    padding: 0 5px;
-    height: 20px;
+}
+
+.MapButton > div > div > svg {
+    height: 30px;
+    width: 30px;
+}
+
+.MapButton > div > div {
+    font-family: 'Open Sans';
 }
 
 .ReviewsIcon {
@@ -131,26 +87,43 @@
     color: #B02E0C;
 }
 
-.PopupPrice {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-left: 5px;
-}
-
-.PopupPrice > div > span {
-    font-weight: 900;
-    font-size: 20px;
-    color: black;
+.NoHomes {
+    font-family: 'Roboto Condensed';
+    color: rgb(118, 118, 118);
+    font-size: 24px;
 }
 
 @media (min-width: 1400px){
     .Listings {
         width: 1000px;
     }
-    .Map {
-        width: calc( 100% - 1000px);
-        height: 100%;
-        position: relative;
+}
+
+@media (max-width: 1120px){
+    .Listings {
+        width: 60%;
     }
 }
+@media (min-width: 900px){
+    .CloseMap {
+        display: none;
+    }
+}
+
+@media (max-width: 900px){
+    .Listings {
+        width: 100%;
+    }
+}
+
+@media(max-width: 690px){
+    .ListingsPage{
+        height: calc( 100% - 50px);
+        margin-top: 50px;
+    }
+    .Listings {
+        height: calc( 100vh - 50px );
+    }
+}
+
+

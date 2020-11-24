@@ -1,0 +1,60 @@
+.Images {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.Image {
+    width: 400px;
+    height: 300px;
+    margin: 0 auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    border: 10px solid white;
+    box-shadow: 2px 5px 10px black;
+    margin-bottom: 25px;
+}
+
+.Delete, .Delete > svg {
+    width: 40px;
+    height: 40px;
+    color: black;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+}
+
+p {
+    text-align: left;
+    font-family: 'Open Sans';
+    margin: 5px 0;
+}
+
+.Title {
+    font-size: 18px;
+    text-align: left;
+    font-family: 'Roboto Condensed';
+}
+
+@media(max-width: 450px){
+    .Title > h3 {
+        font-size: 18px;
+        margin: 0 0;
+        margin-bottom: 5px;
+    }
+    .Image {
+        width: 300px;
+        height: 200px;
+    }
+}
+
+@media(max-width: 450px){
+    .Image {
+        width: 180px;
+        height: 130px;
+    }
+}

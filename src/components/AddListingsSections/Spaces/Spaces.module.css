@@ -1,0 +1,37 @@
+.Spaces {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+p {
+    text-align: left;
+    font-family: 'Open Sans';
+}
+
+.Title {
+    font-size: 18px;
+    text-align: left;
+    font-family: 'Roboto Condensed';
+}
+
+.InputLabel {
+    font-family: 'Roboto Condensed';
+    font-size: 20px;
+    text-align: left;
+    margin-bottom: 10px;
+    display: block;
+    width: fit-content;
+    color: rgb(118, 118, 118);
+    margin-top: 15px;
+}
+
+@media(max-width: 450px){
+    .Title > h3 {
+        font-size: 18px;
+        margin: 0 0;
+        margin-bottom: 5px;
+    }
+}

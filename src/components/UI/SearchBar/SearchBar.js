@@ -5,7 +5,7 @@ import TimesCircleIcon from '../../../assets/icons/cancel-custom';
 import DatePicker from '../DatePicker/DatePicker';
 import GuestsPicker from '../GuestsPicker/GuestsPicker';
 import {connect} from 'react-redux';
-import * as actions from '../../../store/actions/searchBar';
+import * as actions from '../../../store/actions/index';
 import {Link} from 'react-router-dom';
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -272,7 +272,7 @@ class SearchBar extends Component {
                         {deleteIcons['guests']}
                     </label>
                     <Link to={{
-                        pathname: '/listings',
+                        pathname: '/homes',
                         search: `?location=${this.props.location}`+
                             `&checkInDate=${this.props.checkInDate}`+
                             `&checkOutDate=${this.props.checkOutDate}`+

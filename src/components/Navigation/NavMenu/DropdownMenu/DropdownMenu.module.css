@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+.DropdownMenu {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    height: fit-content;
+    width: 200px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow : 3px 0px 20px -10px #BBB, -3px 0px 20px -10px #BBB, 0px 5px 5px -5px #BBB !important;
+}
+
+.NavLink > div, .NavLinkDiv {
+    height: 40px;
+    font-family: 'Roboto Condensed';
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+.active {
+    color: tomato;
+}
+
+@media(max-width: 690px){
+    .DropdownMenu {
+        top: 60px;
+        right: 10px;
+    }
+}

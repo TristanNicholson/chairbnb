@@ -1,0 +1,37 @@
+.NavMenu {
+    border-radius: 30px;
+    background-color: white;
+    display: flex;
+    height: 45px;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 90px;
+}
+
+.NavMenu > div {
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100%;
+    color: #DDD;
+}
+
+@media (max-width: 690px){
+    .NavMenu {
+        border-radius: 30px;
+        background-color: white;
+        display: flex;
+        height: 35px;
+        padding: 10px;
+        box-sizing: border-box;
+        width: 70px;
+    }
+    
+    .NavMenu > div {
+        padding: 20px;
+        box-sizing: border-box;
+        height: 100%;
+        color: #DDD;
+    }
+    
+    
+}

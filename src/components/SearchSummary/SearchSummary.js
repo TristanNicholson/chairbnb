@@ -5,7 +5,7 @@ import FilterButton from '../UI/Buttons/FilterButton/FilterButton';
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 const searchSummary = (props) => {
-    let searchSummary = `${props.listingsCount >= 300 ? '300+' : props.listingsCount} stays`;
+    let searchSummary = `${props.listingsCount >= 300 ? '300+' : props.listingsCount} stay${props.listingsCount !== 1 ? 's':''}`;
     if(props.checkInDate){
         searchSummary += ' · ' + 
             `${MONTHS[(new Date(Date.parse(props.checkInDate))).getMonth()]}`+
