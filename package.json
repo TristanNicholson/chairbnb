@@ -1,5 +1,6 @@
 {
   "name": "airbnb_clone",
+  "homepage": "https://chairbnb123.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
