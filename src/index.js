@@ -15,6 +15,9 @@ import listingsReducer from './store/reducers/listings';
 import bookingsReducer from './store/reducers/bookings';
 import thunk from 'redux-thunk';
 
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const rootReducer = combineReducers({
     searchBar: searchBarReducer,
     map: mapReducer,
@@ -25,7 +28,7 @@ const rootReducer = combineReducers({
     bookings: bookingsReducer
 });
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <React.StrictMode>
