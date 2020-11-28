@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import classes from './ConfirmLocation.module.css';
-import axios from 'axios';
-
 
 class confirmLocation extends Component {
     state = {

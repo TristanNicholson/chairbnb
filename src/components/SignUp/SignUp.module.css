@@ -5,6 +5,9 @@
     align-items: flex-start;
     justify-content: space-between;
     margin-left: 10px;
+    background-color: white;
+    width: 400px;
+    padding: 20px;
 }
 
 .Fields {

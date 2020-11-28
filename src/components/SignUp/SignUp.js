@@ -194,7 +194,7 @@ class SignUp extends Component {
         return (
             <>
             <div className={classes.SignUp}>
-                <div className={classes.Title}>SIGN UP</div>
+                <div className={classes.Title}>Sign Up</div>
                 <div className={classes.Fields}>
                     {this.props.signingUp ? 
                         <Spinner/> :

@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import classes from './ImageCollage.module.css';
-import {Splide, SplideSlide} from '@splidejs/react-splide';
 import Modal from '../../UI/Modal/Modal';
-import Slider from 'react-slick';
 import Carousel from '../Carousel/Carousel';
 
 class ImageCollage extends Component {

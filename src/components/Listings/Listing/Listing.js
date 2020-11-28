@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import classes from './Listing.module.css';
-import '../../../../node_modules/@splidejs/splide/dist/css/themes/splide-default.min.css';
 import {connect} from 'react-redux';
-import {Splide, SplideSlide} from '@splidejs/react-splide';
 import { NavLink } from 'react-router-dom';
 import Reviews from '../../UI/Reviews/Reviews';
 import { withRouter } from "react-router-dom";
@@ -59,20 +57,11 @@ class Listing extends Component {
             this.props.history.push('/hosting/listings/add/'+this.props.listing._id+'/propertyType');
         }
         const lengthOfStay = Math.ceil(Math.abs(new Date(this.props.checkOut) - new Date(this.props.checkIn)) / (1000 * 60 * 60 * 24));
-        let sliderImages = this.props.listing.images.gallery.map((image)=>{
-            return (
-                <SplideSlide key={image}>
-                    <img src={image} alt={this.props.listing.name}></img>
-                </SplideSlide>
-            );
-        });
-
+        let sliderImages;
         let placeholderImage = null;
         if(this.props.listing.images.gallery.length === 0){
             placeholderImage = (
-                <SplideSlide key={'placeholder'}>
-                    <img src={'https://chairbnb123.s3.us-east-2.amazonaws.com/images/utility/hobbiton.jpg'} alt={'Placeholder image'}></img>
-                </SplideSlide>
+                <div key={'https://chairbnb123.s3.us-east-2.amazonaws.com/images/utility/hobbiton.jpg'} className={classes.ImageDiv} style={{backgroundImage: 'url(https://chairbnb123.s3.us-east-2.amazonaws.com/images/utility/hobbiton.jpg)'}}></div>
             );
         }
 

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ImageUploader from 'react-images-upload';
 import classes from './Images.module.css';
 import ImageUpload from '../../UI/ImageUpload/ImageUpload';
 import TimesIcon from '../../../assets/icons/times-circle-solid';

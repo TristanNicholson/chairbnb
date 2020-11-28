@@ -94,7 +94,7 @@ class ListingsPage extends Component {
         let newUrlSearch;
 
         if(this.props.location.search.includes('pageOffset')){
-            newUrlSearch = this.props.location.search.replace(/(?<=pageOffset=)[\d+.-]+/g, page);
+            newUrlSearch = this.props.location.search.replace(/pageOffset=[\d+.-]+/g, page);
         }else{
             newUrlSearch = this.props.location.search + '&pageOffset=' + (page);
         }
@@ -122,7 +122,7 @@ class ListingsPage extends Component {
             let newUrlSearch;
 
             if(this.props.location.search.includes('pageOffset')){
-                newUrlSearch = this.props.location.search.replace(/(?<=pageOffset=)[\d+.-]+/g,this.state.page - 1);
+                newUrlSearch = this.props.location.search.replace(/pageOffset=[\d+.-]+/g,this.state.page - 1);
             }else{
                 newUrlSearch = this.props.location.search + '&pageOffset=' + (this.state.page - 1);
             }
@@ -150,7 +150,7 @@ class ListingsPage extends Component {
         let newUrlSearch;
 
         if(this.props.location.search.includes('pageOffset')){
-            newUrlSearch = this.props.location.search.replace(/(?<=pageOffset=)[\d+.-]+/g,this.state.page+1);
+            newUrlSearch = this.props.location.search.replace(/pageOffset=[\d+.-]+/g,this.state.page+1);
         }else{
             newUrlSearch = this.props.location.search + '&pageOffset=' + (this.state.page + 1);
         }

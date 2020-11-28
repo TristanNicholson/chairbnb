@@ -2,6 +2,8 @@
     border-radius: 30px;
     background-color: white;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 45px;
     padding: 10px;
     box-sizing: border-box;
@@ -9,29 +11,37 @@
 }
 
 .NavMenu > div {
-    padding: 20px;
-    box-sizing: border-box;
+    height: 30px;
+    width: 30px;
+    color: black;
+}
+
+.Bars {
+    height: 27px;
+    width: 27px;
+}
+
+.NavMenu > div > svg{
     height: 100%;
-    color: #DDD;
+    width: 100%;
 }
 
 @media (max-width: 690px){
     .NavMenu {
-        border-radius: 30px;
-        background-color: white;
-        display: flex;
         height: 35px;
-        padding: 10px;
-        box-sizing: border-box;
         width: 70px;
+        padding: 7px;
+        border-radius: 26px;
     }
-    
     .NavMenu > div {
-        padding: 20px;
-        box-sizing: border-box;
-        height: 100%;
-        color: #DDD;
+        height: 26px;
+        width: 26px;
+        color: black;
     }
     
+    .Bars {
+        height: 23px;
+        width: 23px;
+    }
     
 }

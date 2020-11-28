@@ -50,8 +50,12 @@ class NavMenu extends Component {
         return (
         <>
             <div className={classes.NavMenu} onClick={this.menuClickedHandler}>
-                <BarsIcon/>
-                <UserIcon/>
+                <div className={classes.Bars}>
+                    <BarsIcon/>
+                </div>
+                <div>
+                    <UserIcon/>
+                </div>               
             </div>
             {this.state.menuActive ? 
                 <DropdownMenu
@@ -72,4 +76,4 @@ class NavMenu extends Component {
     };
 };
 
-export default NavMenu
+export default NavMenu;

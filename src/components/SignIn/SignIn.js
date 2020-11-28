@@ -145,7 +145,7 @@ class SignIn extends Component {
                 })}
                 <div>
                     {errors}
-                    <Button btnType="Success" disabled={!this.state.formIsValid}>SIGN IN</Button>
+                    <Button btnType="Success" disabled={!this.state.formIsValid}>Sign In</Button>
                 </div>
                 
             </form>

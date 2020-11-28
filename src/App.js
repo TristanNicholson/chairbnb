@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
-import HomePage from './containers/HomePage/HomePage';
-import ListingsPage from './containers/ListingsPage/ListingsPage';
-import ManageListings from './containers/ManageListings/ManageListings';
+
 import { Route, Switch } from 'react-router-dom';
-import Toolbar from './components/Navigation/Toolbar/Toolbar';
-import Home from './containers/Home/Home';
-import AddListing from './containers/AddListing/AddListing';
+import ManageListings from './containers/ManageListings/ManageListings';
 import { connect } from 'react-redux';
-import * as actions from './store/actions/index';
+import HomePage from './containers/HomePage/HomePage';
+import Home from './containers/Home/Home';
+import ListingsPage from './containers/ListingsPage/ListingsPage';
+import Toolbar from './components/Navigation/Toolbar/Toolbar';
+import AddListing from './containers/AddListing/AddListing';
 import Bookings from './containers/Bookings/Bookings';
+
 
 class App extends Component {
 
   render(){
-    this.props.checkAuth();
+
     let app = (
       <div className="App" id="App">
         <Toolbar/>
@@ -43,8 +44,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    checkAuth: ()=>dispatch(actions.checkAuth())
+
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
