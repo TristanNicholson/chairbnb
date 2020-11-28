@@ -8,7 +8,6 @@ import {connect} from 'react-redux';
 import * as actions from '../../store/actions/index.js';
 import Map from '../Map/Map';
 import MapIcon from '../../assets/icons/map-marked-alt-solid';
-import Modal from '../../components/UI/Modal/Modal';
 
 class ListingsPage extends Component {
     state = {
@@ -178,7 +177,6 @@ class ListingsPage extends Component {
     };
 
     showMapHandler = () => {
-        console.log('here');
         this.setState({showMap: true});
     };
 

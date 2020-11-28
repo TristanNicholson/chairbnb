@@ -220,8 +220,11 @@ class Listing extends Component {
         if(width <= 325){
             carouselHeight = '170px';
             carouselWidth = '95vw';
-        }else if(width <= 500 ){
+        }else if(width <= 375 ){
             carouselHeight = '220px';
+            carouselWidth = '90vw';
+        }else if(width <= 500 ){
+            carouselHeight = '270px';
             carouselWidth = '90vw';
         }else if(width <= 600){
             carouselHeight = '150px';

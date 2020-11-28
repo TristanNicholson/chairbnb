@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './MobileSearchModal.module.css';
 import TimesCircleIcon from '../../../assets/icons/cancel-custom';
+import { Link } from 'react-router-dom';
 
 const FIELD_LABEL = {
     'checkInActive': 'Select Check in Date',
@@ -9,6 +10,27 @@ const FIELD_LABEL = {
 };
 const mobileSearchModal = props => {
     let nextButtonLabel = props.activeCategory === 'guestsActive' ? 'Search' : 'Next';
+    let nextOrFinish = props.activeCategory === 'guestsActive' ? props.finish : props.goToNext;
+
+    if(props.activeCategory === 'guestsActive'){
+        nextOrFinish = (
+        <Link 
+            to={{
+                pathname: '/homes',
+                search: `?location=${props.searchData.location}`+
+                    `&checkInDate=${props.searchData.checkInDate}`+
+                    `&checkOutDate=${props.searchData.checkOutDate}`+
+                    `&adults=${props.searchData.guests.adults}`+
+                    `&children=${props.searchData.guests.children}`+
+                    `&infants=${props.searchData.guests.infants}`
+            }}
+            style={{ textDecoration: 'none' }}>
+
+            <div>Search</div>
+        </Link>);
+    }else{
+        nextOrFinish = <div onClick={nextOrFinish}>Next</div>;
+    }
 
     return (
         <>
@@ -22,7 +44,7 @@ const mobileSearchModal = props => {
             {props.children}
             <div className={classes.NavButtons}>
                 <div onClick={props.goBack}>Back</div>
-                <div onClick={props.goToNext}>{nextButtonLabel}</div>
+                {nextOrFinish}
             </div>
             <div onClick={props.exitModal} className={classes.ExitModal}>
                 <div><TimesCircleIcon/></div>

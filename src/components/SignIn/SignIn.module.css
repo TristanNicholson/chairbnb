@@ -1,19 +1,27 @@
 .SignIn {
+    width: 60vw;
     height: fit-content;
+    padding: 20px;
+    background-color: white;
+    border: 4px solid black;
+}
+
+.SignIn > div {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    margin-left: 10px;
+    margin: 0 auto;
+    width: fit-content;
 }
 
 .Fields {
-    width: 100%;
+    width: fit-content;
 }
 
 .Field {
     height: 90px;
-    width: 80%;
+    width: 400px;
 }
 
 .Fields > div > input {
@@ -23,7 +31,7 @@
 }
 .Title {
     height: 50px;
-    width: 90%;
+    width: 500px;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -64,4 +72,50 @@
     font-size: 18px;
     width: 100%;
     text-align: left;
+}
+
+form > div {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 900px){
+
+    .SignIn {
+        width: 700px;
+        padding: 10px;
+    }
+
+    .Title {
+        width: 350px;
+    }
+    .Field {
+        width: 250px;
+    }
+}
+
+@media (max-width: 600px){
+    .SignIn{
+         width: 350px;
+    }
+    .Title {
+        width: 250px;
+    }
+    .Field {
+        height: 80px;
+        width: 250px;
+    }
+}
+
+@media (max-width: 350px) {
+    .SignIn{
+        width: 270px;
+   }
+   .Title {
+       width: 250px;
+   }
+   .Field {
+       height: 80px;
+       width: 250px;
+   }
 }

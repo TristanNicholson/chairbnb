@@ -127,20 +127,21 @@ class SignIn extends Component {
 
         let form = (
             <form onSubmit={this.signInHandler}>   
-                {formElementsArray.map(formElement=>{
+                {formElementsArray.map((formElement,i)=>{
                     return (
-                        <div className={classes.Field}>
-                        <div className={classes.Label}>{formElement.config.elementLabel}</div>
-                        <Input 
-                                key={formElement.id}
-                                touched={formElement.config.touched}
-                                invalid={!formElement.config.valid}
-                                shouldValidate={formElement.config.validation}
-                                elementType={formElement.config.elementType} 
-                                elementConfig={formElement.config.elementConfig} 
-                                value={formElement.config.value} 
-                                changed={(event)=>this.inputChangedHandler(event, formElement.id)}/>
-                        {!formElement.config.valid && formElement.config.touched ? <p>{errorDetails[formElement.id]}</p>: null}
+                        <div key={i}>
+                            <div className={classes.Field}>
+                            <div className={classes.Label}>{formElement.config.elementLabel}</div>
+                            <Input 
+                                    touched={formElement.config.touched}
+                                    invalid={!formElement.config.valid}
+                                    shouldValidate={formElement.config.validation}
+                                    elementType={formElement.config.elementType} 
+                                    elementConfig={formElement.config.elementConfig} 
+                                    value={formElement.config.value} 
+                                    changed={(event)=>this.inputChangedHandler(event, formElement.id)}/>
+                            {!formElement.config.valid && formElement.config.touched ? <p>{errorDetails[formElement.id]}</p>: null}
+                            </div>
                         </div>);
                 })}
                 <div>
@@ -152,18 +153,17 @@ class SignIn extends Component {
         );
 
         return (
-            <>
             <div className={classes.SignIn}>
-                <div className={classes.Title}>SIGN IN</div>
-                <div className={classes.Fields}>
-                    {this.props.signingUp ? 
-                        <Spinner/> :
-                        form
-                    }    
-                </div>
+                <div>
+                    <div className={classes.Title}>Sign In</div>
+                    <div className={classes.Fields}>
+                        {this.props.signingUp ? 
+                            <Spinner/> :
+                            form
+                        }    
+                    </div>
+                </div>  
             </div>
-
-            </>
         );
     }
 }

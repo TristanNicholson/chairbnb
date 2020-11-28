@@ -159,7 +159,9 @@ class MobileSearchBar extends Component {
                 activeCategory={Object.keys(this.state).find(key=>this.state[key] === true)}
                 exitModal={this.exitModalHandler}
                 goBack={this.backButtonHandler}
-                goToNext={this.nextButtonHandler}>
+                goToNext={this.nextButtonHandler}
+                finish={()=>this.props.onSubmitSearch(this.props.searchState)} 
+                searchData={this.props.searchState}>               
                 {datePicker}
                 {guestsPicker}
             </MobileSearchModal> : null;
@@ -194,7 +196,8 @@ const mapStateToProps = (state) => {
         location: state.searchBar.location,
         checkInDate: state.searchBar.checkInDate,
         checkOutDate: state.searchBar.checkOutDate,
-        guests: state.searchBar.guests
+        guests: state.searchBar.guests,
+        searchState: state.searchBar
     }
 }
 
@@ -205,7 +208,8 @@ const mapDispatchToProps = (dispatch) => {
         onCheckOutDateChange: (id)=>dispatch(actions.setCheckOutDate(id)),
         onGuestAdded: (guestType)=>dispatch(actions.addGuest(guestType)),
         onGuestRemoved: (guestType)=>dispatch(actions.removeGuest(guestType)),
-        onGuestsCleared: ()=>dispatch(actions.clearGuests())
+        onGuestsCleared: ()=>dispatch(actions.clearGuests()),
+        onSubmitSearch: (searchState)=>dispatch(actions.submitSearch(searchState))
     }
 }
 
