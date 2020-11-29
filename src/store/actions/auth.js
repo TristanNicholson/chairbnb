@@ -6,7 +6,7 @@ export const signIn = (data) => {
         var myHeaders = new Headers();
         myHeaders.append('Content-Type', 'application/json');
         myHeaders.append('Access-Control-Allow-Origin', '*');
-        fetch('https://chairbnb123-backend.herokuapp.com/api/auth', {
+        fetch('http://localhost:5000/api/auth', {
             method: "POST",
             headers: myHeaders,
             mode: 'cors',
@@ -35,7 +35,7 @@ export const signUp = (form) => {
         var myHeaders = new Headers();
         myHeaders.append('Content-Type', 'application/json');
         myHeaders.append('Access-Control-Allow-Origin', '*');
-        fetch('https://chairbnb123-backend.herokuapp.com/api/users', {
+        fetch('http://localhost:5000/api/users', {
             method: "POST",
             mode: 'cors',
             headers: myHeaders,
@@ -94,14 +94,13 @@ export const checkAuth = () => {
         myHeaders.append('Content-Type', 'application/json');
         myHeaders.append('Access-Control-Allow-Origin', '*');
         myHeaders.append('x-auth-token', localStorage.getItem('token'));
-        fetch('https://chairbnb123-backend.herokuapp.com/api/auth', {
+        fetch('http://localhost:5000/api/auth/', {
             method: "GET",
             headers: myHeaders,
             mode: 'cors'
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             dispatch(setAuth(data));
         })
         .catch(err=>console.error(err));

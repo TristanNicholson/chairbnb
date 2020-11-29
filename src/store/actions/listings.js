@@ -5,7 +5,7 @@ export const createListing = () => {
         var myHeaders = new Headers();
         myHeaders.append('Access-Control-Allow-Origin', '*');
         myHeaders.append('x-auth-token', localStorage.getItem('token'));
-        fetch('https://chairbnb123-backend.herokuapp.com/api/listings/create', {
+        fetch('http://localhost:5000/api/listings/create', {
             method: "GET",
             headers: myHeaders,
             mode: 'cors'
@@ -39,7 +39,7 @@ export const uploadImage = (listingId, image) => {
         let formData = new FormData();
         formData.append('listingImage',image);
 
-        fetch('https://chairbnb123-backend.herokuapp.com/api/listings/'+listingId+'/manage/addImage', {
+        fetch('http://localhost:5000/api/listings/'+listingId+'/manage/addImage', {
             method: "POST",
             headers: myHeaders,
             mode: 'cors',
@@ -73,7 +73,7 @@ export const setListing = (listingId) => {
         var myHeaders = new Headers();
         myHeaders.append('Access-Control-Allow-Origin', '*');
         myHeaders.append('x-auth-token', localStorage.getItem('token'));
-        fetch('https://chairbnb123-backend.herokuapp.com/api/listings/'+listingId+'/manage/listing', {
+        fetch('http://localhost:5000/api/listings/'+listingId+'/manage/listing', {
             method: "GET",
             headers: myHeaders,
             mode: 'cors'
@@ -99,7 +99,7 @@ export const saveListing = (listingId, data) => {
         myHeaders.append('Access-Control-Allow-Origin', '*');
         myHeaders.append('x-auth-token', localStorage.getItem('token'));
         myHeaders.append('Content-Type', 'application/json');
-        fetch('https://chairbnb123-backend.herokuapp.com/api/listings/'+listingId+'/manage/save', {
+        fetch('http://localhost:5000/api/listings/'+listingId+'/manage/save', {
             method: "POST",
             headers: myHeaders,
             mode: 'cors',
@@ -136,7 +136,7 @@ export const deleteImage = (listingId, image) => {
         myHeaders.append('x-auth-token', localStorage.getItem('token'));
         myHeaders.append('Content-Type', 'application/json');
 
-        fetch('https://chairbnb123-backend.herokuapp.com/api/listings/'+listingId+'/manage/deleteImage', {
+        fetch('http://localhost:5000/api/listings/'+listingId+'/manage/deleteImage', {
             method: "DELETE",
             headers: myHeaders,
             mode: 'cors',
@@ -167,7 +167,7 @@ export const deleteListing = (listingId) => {
         myHeaders.append('x-auth-token', localStorage.getItem('token'));
         myHeaders.append('Content-Type', 'application/json');
 
-        fetch('https://chairbnb123-backend.herokuapp.com/api/listings/'+listingId+'/manage/delete', {
+        fetch('http://localhost:5000/api/listings/'+listingId+'/manage/delete', {
             method: "DELETE",
             headers: myHeaders,
             mode: 'cors'
@@ -188,7 +188,7 @@ export const activateListing = (listingId) => {
     myHeaders.append('x-auth-token', localStorage.getItem('token'));
     myHeaders.append('Content-Type', 'application/json');
 
-    fetch('https://chairbnb123-backend.herokuapp.com/api/listings/'+listingId+'/manage/activate', {
+    fetch('http://localhost:5000/api/listings/'+listingId+'/manage/activate', {
         method: "POST",
         headers: myHeaders,
         mode: 'cors'

@@ -70,7 +70,7 @@ export const submitSearch = (search) => {
     return dispatch => {
         var myHeaders = new Headers();
         myHeaders.append('Content-Type', 'application/json');
-        fetch('https://chairbnb123-backend.herokuapp.com/api/listings', {
+        fetch('http://localhost:5000/api/listings', {
             method: "POST",
             body: JSON.stringify(search),
             headers: myHeaders,

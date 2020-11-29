@@ -7,7 +7,7 @@ export const fetchListings = () => {
         myHeaders.append('Content-Type', 'application/json');
         myHeaders.append('Access-Control-Allow-Origin', '*');
         myHeaders.append('x-auth-token', localStorage.getItem('token'));
-        fetch('https://chairbnb123-backend.herokuapp.com/api/listings/manage/all', {
+        fetch('http://localhost:5000/api/listings/manage/all', {
             method: "GET",
             headers: myHeaders,
             mode: 'cors'

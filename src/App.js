@@ -10,12 +10,13 @@ import ListingsPage from './containers/ListingsPage/ListingsPage';
 import Toolbar from './components/Navigation/Toolbar/Toolbar';
 import AddListing from './containers/AddListing/AddListing';
 import Bookings from './containers/Bookings/Bookings';
+import * as actions from './store/actions/index';
 
 
 class App extends Component {
 
   render(){
-
+    this.props.onCheckAuth();
     let app = (
       <div className="App" id="App">
         <Toolbar/>
@@ -29,9 +30,7 @@ class App extends Component {
         </Switch>
       </div>
     );
-    if(this.props.authenticating){
-      app = null;
-    }
+
     return app;
   }
 }
@@ -44,8 +43,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    onCheckAuth: ()=>dispatch(actions.checkAuth())
   };
 }
 
-export default App;
+export default connect(mapStateToProps,mapDispatchToProps)(App);

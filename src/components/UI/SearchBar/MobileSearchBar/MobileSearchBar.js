@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useContext} from 'react';
 import classes from './MobileSearchBar.module.css';
 import SearchIcon from '../../../../assets/icons/search-solid';
 import DatePicker from '../../DatePicker/DatePicker';
@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import * as actions from '../../../../store/actions/searchBar';
 import MobileSearchModal from '../../MobileSearchModal/MobileSearchModal';
 import GuestsPicker from '../../GuestsPicker/GuestsPicker';
+import { withRouter } from 'react-router-dom';
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -16,6 +17,36 @@ class MobileSearchBar extends Component {
         guestsActive: false,
         modalActive: false
     };
+
+    componentDidMount(){
+        document.addEventListener('keypress',(e)=>{
+            const {history} = this.props;
+            console.log(history);
+            console.log(e.key);
+            console.log(this.props);
+            console.log(this.context);
+            if(e.key === 'Enter'){
+                if(!this.state.modalActive){
+                    this.setState({modalActive: true, checkInActive: true});
+                }else if(this.state.checkInActive){
+                    this.setState({checkInActive: false, checkOutActive: true});
+                }else if(this.state.checkOutActive){
+                    this.setState({checkOutActive: false, guestsActive: true});
+                }else{
+                    this.props.history.push(
+                        '/homes'+
+                        `?location=${this.props.location}`+
+                        `&checkInDate=${this.props.checkInDate}`+
+                        `&checkOutDate=${this.props.checkOutDate}`+
+                        `&adults=${this.props.guests.adults}`+
+                        `&children=${this.props.guests.children}`+
+                        `&infants=${this.props.guests.infants}`
+                    );
+                    this.setState({checkOutActive: false, checkInActive: false, modalActive: false, guestsActive: false});
+                }
+            }
+        });
+    }
 
     datesClickedHandler = (event) => {
         document.getElementById(event.target.id).style.backgroundColor = 'black';
@@ -213,4 +244,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MobileSearchBar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MobileSearchBar));

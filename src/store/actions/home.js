@@ -5,7 +5,7 @@ export const fetchHome = (id) => {
         var myHeaders = new Headers();
         myHeaders.append('Content-Type', 'application/json');
         console.log(id);
-        fetch('https://chairbnb123-backend.herokuapp.com/api/listings/'+id+'/page', {
+        fetch('http://localhost:5000/api/listings/'+id+'/page', {
             method: "GET",
             headers: myHeaders,
             mode: 'cors'

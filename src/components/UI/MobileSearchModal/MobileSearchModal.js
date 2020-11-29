@@ -26,7 +26,7 @@ const mobileSearchModal = props => {
             }}
             style={{ textDecoration: 'none' }}>
 
-            <div>Search</div>
+            <div className={classes.SearchButton}>Search</div>
         </Link>);
     }else{
         nextOrFinish = <div onClick={nextOrFinish}>Next</div>;

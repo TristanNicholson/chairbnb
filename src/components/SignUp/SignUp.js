@@ -108,7 +108,7 @@ class SignUp extends Component {
         return isValid;
     }
 
-    signUpHandler = async ( event ) => {
+    signUpHandler = ( event ) => {
         event.preventDefault();
         const formData = {
             email: this.state.signUpForm.email.value,
@@ -116,10 +116,12 @@ class SignUp extends Component {
             name: this.state.signUpForm.firstName.value + ' ' + this.state.signUpForm.lastName.value
         };
         
-        await this.props.onSignUp(formData);
-        if(this.props.signUpInSuccess){
-            this.props.modalClose();
-        }
+        this.props.onSignUp(formData);
+        setTimeout(()=>{
+            if(this.props.signUpInSuccess){
+                this.props.modalClose();
+            }
+        },500);     
     }
 
     inputChangedHandler = (event, elementId) => {

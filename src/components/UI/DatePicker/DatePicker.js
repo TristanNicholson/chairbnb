@@ -94,9 +94,9 @@ class DatePicker extends Component {
         this.setState((prevState)=>{
             let newYear = prevState.year;
             if(prevState.month === 11){
-                newYear = prevState.year++;
+                newYear = ++prevState.year;
             }
-            return {month: prevState.month++ % 12, year: newYear, weeks: [[],[],[],[],[],[]]};
+            return {month: ++prevState.month % 12, year: newYear, weeks: [[],[],[],[],[],[]]};
         });
     };
 

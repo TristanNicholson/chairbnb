@@ -13,7 +13,7 @@ export const createBooking = (listingId, startDate, endDate, guests) => {
         myHeaders.append('Content-Type', 'application/json');
         myHeaders.append('Access-Control-Allow-Origin', '*');
         myHeaders.append('x-auth-token', localStorage.getItem('token'));
-        fetch('https://chairbnb123-backend.herokuapp.com/api/bookings', {
+        fetch('http://localhost:5000/api/bookings', {
             method: "POST",
             headers: myHeaders,
             mode: 'cors',
@@ -52,7 +52,7 @@ export const fetchBookings = () => {
         myHeaders.append('Content-Type', 'application/json');
         myHeaders.append('Access-Control-Allow-Origin', '*');
         myHeaders.append('x-auth-token', localStorage.getItem('token'));
-        fetch('https://chairbnb123-backend.herokuapp.com/api/bookings', {
+        fetch('http://localhost:5000/api/bookings', {
             method: "GET",
             headers: myHeaders,
             mode: 'cors'
@@ -107,7 +107,7 @@ export const denyBooking = (bookingId) => {
         myHeaders.append('Content-Type', 'application/json');
         myHeaders.append('Access-Control-Allow-Origin', '*');
         myHeaders.append('x-auth-token', localStorage.getItem('token'));
-        fetch('https://chairbnb123-backend.herokuapp.com/api/bookings/'+bookingId+'/deny', {
+        fetch('http://localhost:5000/api/bookings/'+bookingId+'/deny', {
             method: "PUT",
             headers: myHeaders,
             mode: 'cors'
@@ -130,7 +130,7 @@ export const acceptBooking = (bookingId) => {
         myHeaders.append('Content-Type', 'application/json');
         myHeaders.append('Access-Control-Allow-Origin', '*');
         myHeaders.append('x-auth-token', localStorage.getItem('token'));
-        fetch('https://chairbnb123-backend.herokuapp.com/api/bookings/'+bookingId+'/accept', {
+        fetch('http://localhost:5000/api/bookings/'+bookingId+'/accept', {
             method: "PUT",
             headers: myHeaders,
             mode: 'cors'

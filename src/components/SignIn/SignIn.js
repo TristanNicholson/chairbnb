@@ -71,17 +71,20 @@ class SignIn extends Component {
         return isValid;
     }
 
-    signInHandler = async ( event ) => {
+    signInHandler = ( event ) => {
         event.preventDefault();
         const formData = {
             email: this.state.signInForm.email.value,
             password: this.state.signInForm.password.value
         };
-        
-        await this.props.onSignIn(formData);
-        if(this.props.signUpInSuccess){
-            this.props.modalClose();
-        }
+
+        this.props.onSignIn(formData);
+
+        setTimeout(()=>{
+            if(this.props.signUpInSuccess){
+                this.props.modalClose();
+            }
+        },500);     
     }
 
     inputChangedHandler = (event, elementId) => {
