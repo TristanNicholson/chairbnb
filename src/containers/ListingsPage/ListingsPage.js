@@ -114,6 +114,7 @@ class ListingsPage extends Component {
         });
 
         this.parseUrlParams();
+        document.getElementById('listings').scrollTop = 0;
     }
 
     prevPageHandler = async () => {
@@ -142,6 +143,7 @@ class ListingsPage extends Component {
             });
 
             this.parseUrlParams();
+            document.getElementById('listings').scrollTop = 0;
         }
     }
 
@@ -170,6 +172,7 @@ class ListingsPage extends Component {
         });
 
         this.parseUrlParams();
+        document.getElementById('listings').scrollTop = 0;
     }
 
     setMapMarkersHandler = (mapMarkers) => {
@@ -192,7 +195,7 @@ class ListingsPage extends Component {
 
         return (
             <div className={classes.ListingsPage}>
-                <div className={classes.Listings}>
+                <div className={classes.Listings} id='listings'>
                     <SearchSummary 
                         location={this.props.place} 
                         listingsCount={this.props.count}

@@ -237,7 +237,7 @@ class Listing extends Component {
             carouselWidth = '22vw';
         }else{
             carouselHeight = '190px';
-            carouselWidth = '30vw';
+            carouselWidth = '25vw';
         }
 
         return (

@@ -230,7 +230,7 @@ class Home extends Component {
             images = (  
                 <div id={'Carousel'} className={classes.Carousel}>
                     <Carousel
-                        width='90vw'
+                        width='95vw'
                         height='40vh'>
                         {sliderImages}
                     </Carousel>

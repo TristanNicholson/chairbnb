@@ -15,17 +15,13 @@ class MobileSearchBar extends Component {
         checkInActive: false,
         checkOutActive: false,
         guestsActive: false,
-        modalActive: false
+        modalActive: false,
+        searchBarActive: false
     };
 
     componentDidMount(){
         document.addEventListener('keypress',(e)=>{
-            const {history} = this.props;
-            console.log(history);
-            console.log(e.key);
-            console.log(this.props);
-            console.log(this.context);
-            if(e.key === 'Enter'){
+            if(e.key === 'Enter' && this.state.searchBarActive){
                 if(!this.state.modalActive){
                     this.setState({modalActive: true, checkInActive: true});
                 }else if(this.state.checkInActive){
@@ -33,6 +29,7 @@ class MobileSearchBar extends Component {
                 }else if(this.state.checkOutActive){
                     this.setState({checkOutActive: false, guestsActive: true});
                 }else{
+                    this.setState({checkOutActive: false, checkInActive: false, modalActive: false, guestsActive: false, searchBarActive: false});
                     this.props.history.push(
                         '/homes'+
                         `?location=${this.props.location}`+
@@ -42,8 +39,15 @@ class MobileSearchBar extends Component {
                         `&children=${this.props.guests.children}`+
                         `&infants=${this.props.guests.infants}`
                     );
-                    this.setState({checkOutActive: false, checkInActive: false, modalActive: false, guestsActive: false});
                 }
+            }
+        });
+
+        document.addEventListener('click',(e)=>{
+            if(e.target.closest('.'+classes.SearchBar)){
+                this.setState({ searchBarActive: true });
+            }else{
+                this.setState({ searchBarActive: false }); 
             }
         });
     }
