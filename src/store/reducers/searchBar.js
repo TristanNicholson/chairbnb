@@ -11,11 +11,19 @@ const initialState = {
     },
     listings: [],
     refinedLocation: '',
-    totalListings: 0
+    totalListings: 0,
+    searching: false
 };
 
 const reducer = (state = initialState, action) => {
     switch(action.type){
+        case(actionTypes.INIT_SEARCH):
+            return {
+                ...state,
+                guests: {...state.guests},
+                listings: [...state.listings],
+                searching: true
+            };
         case(actionTypes.SET_LOCATION):
             return {
                 ...state,
@@ -98,7 +106,8 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 listings: action.listings.data,
                 refinedLocation: action.listings.name,
-                totalListings: action.listings.totalListings
+                totalListings: action.listings.totalListings,
+                searching: false
             };
         default:
             return state;

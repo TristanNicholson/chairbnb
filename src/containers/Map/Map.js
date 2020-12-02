@@ -77,12 +77,13 @@ class Map extends Component{
         }
         if(this.props.type === 'homes' && prevProps.listings !== this.props.listings){
             let mapMarkers=[];
+
             for(let marker of this.props.listings){
                 let el = document.createElement('div');
                 let price = document.createTextNode(`$${marker.price}`);
                 el.appendChild(price);
                 el.setAttribute('id',marker._id);
-                el.className = classes.Marker;
+                el.className = `${classes.Marker} Marker`;
 
                 mapMarkers.push(new mapboxgl.Marker(el)
                 .setLngLat(marker.address.location.coordinates)

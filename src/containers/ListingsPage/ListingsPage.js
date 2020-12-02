@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 import * as actions from '../../store/actions/index.js';
 import Map from '../Map/Map';
 import MapIcon from '../../assets/icons/map-marked-alt-solid';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 class ListingsPage extends Component {
     state = {
@@ -39,6 +40,17 @@ class ListingsPage extends Component {
         }
         this.parseUrlParams();
     };
+    componentDidUpdate(prevProps){
+        if(this.props.listings !== prevProps.listings){
+            for(let marker of this.state.mapMarkers){
+                marker.remove();
+            } 
+        }
+        
+        if(prevProps.location !== this.props.location){
+            this.parseUrlParams();
+        }  
+    }
 
     parseUrlParams(){
         const query = new URLSearchParams(this.props.location.search);
@@ -93,7 +105,7 @@ class ListingsPage extends Component {
         let newUrlSearch;
 
         if(this.props.location.search.includes('pageOffset')){
-            newUrlSearch = this.props.location.search.replace(/pageOffset=[\d+.-]+/g, page);
+            newUrlSearch = this.props.location.search.replace(/pageOffset=[\d+.-]+/g, 'pageOffset='+(page));
         }else{
             newUrlSearch = this.props.location.search + '&pageOffset=' + (page);
         }
@@ -112,9 +124,6 @@ class ListingsPage extends Component {
                 mapMarkers: []
             };
         });
-
-        this.parseUrlParams();
-        document.getElementById('listings').scrollTop = 0;
     }
 
     prevPageHandler = async () => {
@@ -122,28 +131,24 @@ class ListingsPage extends Component {
             let newUrlSearch;
 
             if(this.props.location.search.includes('pageOffset')){
-                newUrlSearch = this.props.location.search.replace(/pageOffset=[\d+.-]+/g,this.state.page - 1);
+                newUrlSearch = this.props.location.search.replace(/pageOffset=[\d+.-]+/g,'pageOffset='+(this.state.page - 1));
             }else{
                 newUrlSearch = this.props.location.search + '&pageOffset=' + (this.state.page - 1);
             }
-
+            
             await this.props.history.push({
                 search: newUrlSearch
             });
-
+    
             for(let marker of this.state.mapMarkers){
                 marker.remove();
             }    
-
-            this.setState((prevState)=>{
+            await this.setState((prevState)=>{
                 return {
                     page: prevState.page - 1,
                     mapMarkers: []
                 };
             });
-
-            this.parseUrlParams();
-            document.getElementById('listings').scrollTop = 0;
         }
     }
 
@@ -151,7 +156,7 @@ class ListingsPage extends Component {
         let newUrlSearch;
 
         if(this.props.location.search.includes('pageOffset')){
-            newUrlSearch = this.props.location.search.replace(/pageOffset=[\d+.-]+/g,this.state.page+1);
+            newUrlSearch = this.props.location.search.replace(/pageOffset=[\d+.-]+/g,'pageOffset='+(this.state.page + 1));
         }else{
             newUrlSearch = this.props.location.search + '&pageOffset=' + (this.state.page + 1);
         }
@@ -170,9 +175,6 @@ class ListingsPage extends Component {
                 mapMarkers: []
             };
         });
-
-        this.parseUrlParams();
-        document.getElementById('listings').scrollTop = 0;
     }
 
     setMapMarkersHandler = (mapMarkers) => {
@@ -195,6 +197,7 @@ class ListingsPage extends Component {
 
         return (
             <div className={classes.ListingsPage}>
+                {!this.props.searching ?
                 <div className={classes.Listings} id='listings'>
                     <SearchSummary 
                         location={this.props.place} 
@@ -218,6 +221,7 @@ class ListingsPage extends Component {
                         page={this.state.page}
                         totalPages={Math.ceil(this.props.count/20)}/>:null}
                 </div>
+                : <Spinner/>}
                 <Map
                     width={this.state.size.width}
                     mapCenter={this.props.mapCenter}
@@ -234,8 +238,7 @@ class ListingsPage extends Component {
                                 <div className={classes.RightX}></div>
                             </div>   
                         </div>
-                </Map>
-                 
+                </Map>       
             </div>
         );
     }
@@ -249,7 +252,8 @@ const mapStateToProps = (state) => {
         mapCenter: state.map.center,
         guests: state.searchBar.guests,
         checkInDate: state.searchBar.checkInDate,
-        checkOutDate: state.searchBar.checkOutDate
+        checkOutDate: state.searchBar.checkOutDate,
+        searching: state.searchBar.searching
     };
 };
 

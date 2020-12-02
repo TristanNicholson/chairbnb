@@ -4,7 +4,7 @@ import ChevronLeft from '../../../assets/icons/chevron-left-solid';
 import ChevronRight from '../../../assets/icons/chevron-right-solid';
 
 const paginator = props => {
-    const leftArrow = props.page === 0 || props.totalPages < 2 ? null : <div 
+    const leftArrow = props.page === 1 || props.totalPages < 2 ? null : <div 
         className={classes.Arrow}
         onClick={props.prevPage}>
             <div><ChevronLeft/>
@@ -25,8 +25,8 @@ const paginator = props => {
     
     firstPages.push(<div 
         className={classes.Paginators} 
-        id={'paginator0'}
-        onClick={()=>props.clickedPage(0)}
+        id={'paginator1'}
+        onClick={()=>props.clickedPage(1)}
         key={1}><div>1</div></div>);
     
     if(props.totalPages > 1){

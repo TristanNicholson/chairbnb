@@ -1,9 +1,10 @@
 .Home {
     width: 100%;
-    min-height: 800px;
+    min-height: 100vh;
     height: fit-content;
-    /*background-image: url(https://chairbnb123.s3.us-east-2.amazonaws.com/images/utility/greece.jpg);*/
-    background-image: linear-gradient(to bottom right, #788475, #F76F8E); 
+    /* background-image: url(https://chairbnb123.s3.us-east-2.amazonaws.com/images/utility/greece.jpg); */
+    /* background-image: linear-gradient(to bottom right, #788475, #F76F8E); 
+    background-image: linear-gradient(to bottom right, #173753, #F76F8E);  */
     background-image: linear-gradient(to bottom right, #20a39e, #173753); 
     background-size: cover;
     background-repeat: no-repeat;

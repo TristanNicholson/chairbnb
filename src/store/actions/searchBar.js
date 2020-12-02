@@ -66,8 +66,15 @@ export const searchFailed = () => {
     console.log('Search Failed');
 };
 
+export const initSearch = () => {
+    return {
+        type: actionTypes.INIT_SEARCH
+    };
+}
+
 export const submitSearch = (search) => {
     return dispatch => {
+        dispatch(initSearch());
         var myHeaders = new Headers();
         myHeaders.append('Content-Type', 'application/json');
         fetch('https://chairbnb123-backend.herokuapp.com/api/listings', {
